@@ -28,8 +28,8 @@ def seed():
     seed_users()
     seed_boards()
     seed_pins()
-    seed_pinsboards()
     seed_comments()
+    seed_pinsboards()
     # Add other seed functions here
 
 

@@ -43,6 +43,12 @@ def seed_pinsboards():
     ]
 
 
+
+    # [db.session.add(pinsboards(**pinboard)) for pinboard in pinsboards_data]
+    # for pinboard in pinsboards_data:
+    #   db.session.add(pinsboards(**pinboard))
+    # db.session.commit()
+
     db.session.execute(pinsboards.insert(), pinsboards_data)
     db.session.commit()
 
