@@ -7,3 +7,7 @@ pinsboards = db.Table(
     db.Column('pin_id', db.Integer, db.ForeignKey(add_prefix_for_prod("pins.id")), primary_key=True),
     db.Column('board_id', db.Integer, db.ForeignKey(add_prefix_for_prod("boards.id")), primary_key=True)
 )
+
+
+if environment == "production":
+    pinsboards.schema = SCHEMA
