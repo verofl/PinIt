@@ -4,25 +4,25 @@ from sqlalchemy.sql import text
 
 def seed_boards():
     board1 = Board(
-        user_id= 1, title='Home Decor',)
+        user_id= 1, title='Home Decor')
     board2 = Board(
-        user_id= 1, title='OOTD Inspo',)
+        user_id= 1, title='OOTD Inspo')
     board3 = Board(
-        user_id= 2, title='Recipes',)
+        user_id= 2, title='Recipes')
     board4 = Board(
-        user_id= 2, title='Stardew',)
+        user_id= 2, title='Stardew')
     board5 = Board(
-        user_id= 3, title='ACOTAR',)
+        user_id= 3, title='ACOTAR')
     board6 = Board(
-        user_id= 3, title='Cooking',)
+        user_id= 3, title='Cooking')
     board7 = Board(
-        user_id= 4, title='Outfits',)
+        user_id= 4, title='Outfits')
     board8 = Board(
-        user_id= 4, title='Fae',)
+        user_id= 4, title='Fae')
     board9 = Board(
-        user_id= 5, title='Stardew Inspo',)
+        user_id= 5, title='Stardew Inspo')
     board10 = Board(
-        user_id= 5, title='Decorating',)
+        user_id= 5, title='Decorating')
 
 
     db.session.add(board1)

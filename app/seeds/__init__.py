@@ -22,12 +22,13 @@ def seed():
         # Make sure to add all your other model's undo functions below
         undo_pinsboards()
         undo_comments()
-        undo_pins()
         undo_boards()
+        undo_pins()
         undo_users()
+
     seed_users()
-    seed_boards()
     seed_pins()
+    seed_boards()
     seed_comments()
     seed_pinsboards()
     # Add other seed functions here
