@@ -14,8 +14,8 @@ class Comment(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     # Relationships
-    users = db.relationship("User", back_populates='comments', cascade='all, delete-orphan')
-    pins = db.relationship("Pin", back_populates='comments', cascade='all, delete-orphan')
+    user = db.relationship("User", back_populates="comments")
+    pins = db.relationship("Pin", back_populates="comments")
 
     def to_dict(self):
         return {

@@ -2,7 +2,7 @@ from app.models import db, Pin, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
-# Adds a demo user, you can add other users here if you want
+
 def seed_pins():
     pin1 = Pin(
         user_id=2, image_url='https://mypinitbucket.s3.amazonaws.com/Conchas+(Mexican+Pan+Dulce)+-+Isabel+Eats.jpeg', title='Pan Dulce Recipe', description='Iconic sweet bread with a crunchy, shell-like topping. Soft and fluffy inside, these vibrant pastries are a beloved treat in Mexican cuisine. Perfect with coffee or hot chocolate.', category='recipes')

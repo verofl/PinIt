@@ -13,8 +13,9 @@ class Favorite(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     # Relationships
-    users = db.relationship("User", back_populates='favorites', cascade='all, delete-orphan')
-    pins = db.relationship("Pin", back_populates='favorites', cascade='all, delete-orphan')
+    user = db.relationship("User", back_populates="favorites")
+    pins = db.relationship("Pin", back_populates="favorites")
+
 
 
     def to_dict(self):

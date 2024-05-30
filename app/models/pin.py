@@ -19,14 +19,15 @@ class Pin(db.Model):
 
 
     # Relationship
-    users = db.relationship("User", back_populates='pins')
-    favorites = db.relationship("Favorite", back_populates='pins', cascade='all, delete-orphan')
-    comments = db.relationship("Comment", back_populates='pins', cascade='all, delete-orphan')
+    user = db.relationship("User", back_populates="pins")
+    favorites = db.relationship("Favorite", back_populates="pins", cascade="all, delete-orphan")
+    comments = db.relationship("Comment", back_populates="pins", cascade="all, delete-orphan")
     boards = db.relationship(
         "Board",
         secondary=pinsboards,
-        back_populates="pins"
+        back_populates="pins",
     )
+
 
 
     def to_dict(self):

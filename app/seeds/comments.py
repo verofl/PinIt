@@ -2,7 +2,7 @@ from app.models import db, Comment, environment, SCHEMA
 from sqlalchemy.sql import text
 
 
-# Adds a demo user, you can add other users here if you want
+
 def seed_comments():
     comment1 = Comment(
         user_id = 1, pin_id = 1, comment="Absolutely delicious! A must-try!")
@@ -78,7 +78,7 @@ def seed_comments():
         user_id = 5, pin_id = 9, comment="Creates a sense of calm and beauty.")
     comment37 = Comment(
         user_id = 1, pin_id = 10, comment="Such intricate and inspiring art!")
-    commen38 = Comment(
+    comment38 = Comment(
         user_id = 2, pin_id = 10, comment="Love the magical theme.")
     comment39 = Comment(
         user_id = 4, pin_id = 10, comment="Captures Feyre's essence beautifully.")

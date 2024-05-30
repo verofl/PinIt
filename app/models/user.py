@@ -31,10 +31,10 @@ class User(db.Model, UserMixin):
 
 
     # Relationships
-    pins = db.relationship("Pin", back_populates='users', cascade='all, delete-orphan')
-    boards = db.relationship("Board", back_populates="users", cascade='all, delete-orphan')
-    favorites = db.relationship("Favorite", back_populates='users', cascade='all, delete-orphan')
-    comments = db.relationship("Comment", back_populates='users', cascade='all, delete-orphan')
+    pins = db.relationship("Pin", back_populates="user", cascade="all, delete-orphan")
+    boards = db.relationship("Board", back_populates="user", cascade="all, delete-orphan")
+    comments = db.relationship("Comment", back_populates="user", cascade="all, delete-orphan")
+    favorites = db.relationship("Favorite", back_populates="user", cascade="all, delete-orphan")
 
 
     def to_dict(self):

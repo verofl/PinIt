@@ -16,12 +16,13 @@ class Board(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
     # Relationships
-    users = db.relationship("User", back_populates='boards', cascade='all, delete-orphan')
+    user = db.relationship("User", back_populates="boards")
     pins = db.relationship(
         "Pin",
         secondary=pinsboards,
-        back_populates="boards", cascade='all, delete-orphan'
+        back_populates="boards",
     )
+
 
 
     def to_dict(self):
