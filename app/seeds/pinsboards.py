@@ -44,14 +44,12 @@ def seed_pinsboards():
 
 
 
-    # for data in pinsboards_data:
-    #   insert = pinsboards.insert().values(pin_id=data['pin_id'], board_id=data['board_id'])
-    #   db.session.execute(insert)
+    for data in pinsboards_data:
+      insert = pinsboards.insert().values(pin_id=data['pin_id'], board_id=data['board_id'])
+      db.session.execute(insert)
 
-    # db.session.commit()
-
-    db.session.execute(pinsboards.insert(), pinsboards_data)
     db.session.commit()
+
 
 def undo_pinsboards():
     if environment == "production":
