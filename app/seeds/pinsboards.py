@@ -42,12 +42,8 @@ def seed_pinsboards():
         {'pin_id': 18, 'board_id': 4},
     ]
 
-    for data in pinsboards_data:
-        result = pinsboards.insert().values(pin_id=data['pin_id'], board_id=data['board_id'])
 
-        db.session.execute(result)
-
-
+    db.session.execute(pinsboards.insert(), pinsboards_data)
     db.session.commit()
 
 def undo_pinsboards():
