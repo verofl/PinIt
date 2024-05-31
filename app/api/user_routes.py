@@ -26,7 +26,7 @@ def user(id):
 
 # Get Pins Created By User X
 @user_routes.route("/<int:id>/created")
-@login_required
+# @login_required
 def user_pins(id):
   created_pins = Pin.query.filter_by(user_id = id).all()
 
