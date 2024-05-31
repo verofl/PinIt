@@ -16,11 +16,11 @@ def all_pins():
   fetched_pins = Pin.query.all()
   return jsonify([pin.to_dict() for pin in fetched_pins]), 200
 
-# Get Pins Created By
 
 
 # Get INDIVIDUAL Pin X
   # Can also access Pin's comments here
+
 @pin_routes.route("/<int:pin_id>")
 def indv_pins(pin_id):
   indvPin = Pin.query.get(pin_id)
