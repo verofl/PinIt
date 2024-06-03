@@ -121,3 +121,46 @@ export const deletePinThunk = (pin_id) => async (dispatch) => {
 
   await dispatch(deletePin(pin_id));
 };
+
+function pinReducer(state = {}, action) {
+  switch (action.type) {
+    case LOAD_PINS: {
+      const newState = {};
+      action.pins.forEach((eachPin) => {
+        newState[eachPin.id] = eachPin;
+      });
+      return newState;
+    }
+    case LOAD_INDV_PIN: {
+      const newState = { ...state, [action.pin.id]: action.pin };
+      return newState;
+    }
+    case LOAD_USER_PINS: {
+      const newState = {};
+      action.pins.forEach((eachPin) => {
+        newState[eachPin.id] = eachPin;
+      });
+      return newState;
+    }
+    case CREATE_PIN: {
+      const newState = { ...state };
+      newState[action.pin.id] = action.pin;
+      return newState;
+    }
+    case UPDATE_PIN: {
+      return {
+        ...state,
+        [action.pin.id]: action.pin,
+      };
+    }
+    case DELETE_PIN: {
+      const newState = { ...state };
+      delete newState[action.pin_id];
+      return newState;
+    }
+    default:
+      return state;
+  }
+}
+
+export default pinReducer;
