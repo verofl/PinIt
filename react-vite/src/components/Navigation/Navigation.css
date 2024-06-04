@@ -35,7 +35,7 @@
 }
 
 .search-bar {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 12px;
   padding: 7px;
   background-color: rgba(211, 211, 211, 0.529);
@@ -56,4 +56,5 @@
   background: transparent;
   border: 0px;
   width: 97%;
+  font-size: 20px;
 }

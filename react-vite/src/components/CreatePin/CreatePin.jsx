@@ -68,43 +68,48 @@ const CreatePin = () => {
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
-        <p className="input-title">Image</p>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setImage_Url(e.target.value)}
-          // className="form-input"
-        />
-        <div className="form-errors">{validationErrors.title}</div>
+        <div className="image-cont">
+          <p className="input-title">Image</p>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setImage_Url(e.target.value)}
+            // className="form-input"
+          />
+          <div className="form-errors">{validationErrors.image_url}</div>
+        </div>
 
-        <p className="input-title">Title</p>
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="form-input"
-        />
-        <div className="form-errors">{validationErrors.title}</div>
+        <div className="create-right-side">
+          <p className="input-title">Title</p>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="form-input"
+          />
+          <div className="form-errors">{validationErrors.title}</div>
 
-        <p className="input-title">Description</p>
-        <textarea
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="form-input"
-        />
-        <div className="form-errors">{validationErrors.description}</div>
+          <p className="input-title">Description</p>
+          <textarea
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="form-input"
+          />
+          <div className="form-errors">{validationErrors.description}</div>
 
-        <p className="input-title">Category</p>
-        <input
-          type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          className="form-input"
-        />
-        <div className="form-errors">{validationErrors.category}</div>
-
-        <button type="submit">Submit</button>
+          <p className="input-title">Category</p>
+          <input
+            type="text"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="form-input"
+          />
+          <div className="form-errors">{validationErrors.category}</div>
+        </div>
+        <button type="submit" className="form-submit-bttn">
+          Submit
+        </button>
         {imageLoading && Object.values(validationErrors).length > 0 && (
           <p>Loading...</p>
         )}

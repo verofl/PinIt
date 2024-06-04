@@ -10,7 +10,7 @@ function Navigation() {
   return (
     <div className="nav-bar">
       <img
-        src="./public/P.png"
+        src="./P.png"
         className="nav-logo"
         onClick={() => navigate(`/feed`)}
       ></img>
