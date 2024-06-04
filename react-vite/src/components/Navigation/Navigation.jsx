@@ -1,18 +1,36 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
+import { FaSearch } from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai";
 
 function Navigation() {
+  const navigate = useNavigate();
   return (
-    <ul>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-
-      <li>
-        <ProfileButton />
-      </li>
-    </ul>
+    <div className="nav-bar">
+      <img
+        src="./P.png"
+        className="nav-logo"
+        onClick={() => navigate(`/feed`)}
+      ></img>
+      <NavLink to="/feed" className="nav-navlink">
+        Home
+      </NavLink>
+      <NavLink to="/" className="nav-navlink">
+        Explore
+      </NavLink>
+      <NavLink to="/pins/new" className="nav-navlink">
+        Create
+      </NavLink>
+      <div className="search-bar">
+        <FaSearch />
+        <input type="search" placeholder="Search" className="search-input" />
+      </div>
+      <FaBell />
+      <AiFillMessage />
+      <ProfileButton />
+    </div>
   );
 }
 

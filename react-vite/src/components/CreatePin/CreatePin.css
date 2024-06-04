@@ -1,0 +1,39 @@
+.pin-form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 10px;
+  width: 70%;
+  height: 700px;
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.image-cont {
+  border: 2px solid red;
+  height: 100%;
+  width: 100%;
+}
+.create-right-side {
+  border: 2px solid red;
+  height: 100%;
+  width: 100%;
+}
+
+.pin-form input {
+  width: 100%;
+}
+.pin-form textarea {
+  width: 100%;
+}
+
+.form-submit-bttn {
+  border: 0px;
+  background-color: #384d48;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 20px;
+}
