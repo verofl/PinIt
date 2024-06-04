@@ -5,7 +5,8 @@
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  /* padding: 10px; */
+  padding: 10px;
+  margin-top: 6em;
   display: grid;
   grid-template-columns: repeat(2, 50%);
 }
@@ -19,8 +20,8 @@
 }
 
 .indv-left-side {
-  padding-right: 15px;
   height: 100%;
+  padding-right: 10px;
 }
 
 .indv-pin-info {
@@ -45,6 +46,5 @@
 .indv-more-to-explore {
   width: 100%;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 1em;
 }
