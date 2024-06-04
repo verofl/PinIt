@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, json, request, redirect, render_template
-from app.models import db, Pin, Comment
+from app.models import db, Pin, Comment, User
 from flask_login import login_required, current_user
 from app.forms.pin_form import PinForm, EditPinForm
 from app.forms.comment_form import CommentForm, EditCommentForm
@@ -13,8 +13,20 @@ pin_routes = Blueprint('pins', __name__)
 # Get ALL Pins X
 @pin_routes.route("/")
 def all_pins():
-  fetched_pins = Pin.query.all()
-  return jsonify([pin.to_dict() for pin in fetched_pins]), 200
+    fetched_pins = Pin.query.all()
+    pins_data = []
+
+    for pin in fetched_pins:
+        pin_dict = pin.to_dict()
+
+        users = User.query.filter(User.id == pin.user_id).all()
+        users_data = [user.to_dict() for user in users]
+
+
+        pin_dict['user'] = users_data
+        pins_data.append(pin_dict)
+
+    return jsonify(pins_data), 200
 
 
 
