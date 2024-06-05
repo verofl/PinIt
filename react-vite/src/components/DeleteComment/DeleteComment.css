@@ -8,3 +8,11 @@
   border-radius: 15px;
   position: absolute;
 }
+
+.delete-dropdown li {
+  list-style-type: none;
+}
+
+.delete-dots {
+  cursor: pointer;
+}

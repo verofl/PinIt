@@ -3,11 +3,15 @@ import { deleteCommentThunk } from "../../redux/comment";
 import { useDispatch } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import { useModal } from "../../context/Modal";
+import EditComment from "../EditComment/EditComment";
 import "./DeleteComment.css";
 
 export const DeleteComment = ({ comment_id }) => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const { closeModal } = useModal();
 
   const ulRef = useRef();
 
@@ -46,9 +50,16 @@ export const DeleteComment = ({ comment_id }) => {
         <HiOutlineDotsHorizontal />
       </div>
       {showMenu && (
-        <ul className="delete-dropdown" ref={ulRef}>
+        <div className="delete-dropdown" ref={ulRef}>
+          {/* <button onClick={deleteCommentEvent}>Edit</button> */}
+          <OpenModalMenuItem
+            itemText="Edit"
+            className="edit-bttn"
+            onItemClick={closeMenu}
+            modalComponent={<EditComment comment_id={comment_id} />}
+          />
           <button onClick={deleteCommentEvent}>Delete</button>
-        </ul>
+        </div>
       )}
     </div>
   );

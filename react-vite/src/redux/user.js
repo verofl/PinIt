@@ -9,7 +9,7 @@ const loadUsers = (users) => ({
 export const loadUsersThunk = () => async (dispatch) => {
   const res = await fetch("/api/users/list");
   const data = await res.json();
-  console.log("USER DATA", data);
+  // console.log("USER DATA", data);
 
   if (!res.ok) {
     return { errors: data };

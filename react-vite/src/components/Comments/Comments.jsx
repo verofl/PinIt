@@ -20,7 +20,7 @@ export const CommentDetails = () => {
 
   const currentUser = useSelector((store) => store.session.user);
 
-  console.log("LIST USERS ==>>", usersArray);
+  // console.log("LIST USERS ==>>", usersArray);
 
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ export const CommentDetails = () => {
   const indvPin = pins[pinId];
 
   let commentsArray = Object.values(indvPin?.comments || {});
-  console.log("COMMENTS ARRAY ===>", commentsArray);
+  // console.log("COMMENTS ARRAY ===>", commentsArray);
 
   useEffect(() => {
     const fetchData = async () => {

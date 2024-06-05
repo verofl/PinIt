@@ -1,24 +1,29 @@
-import "./CreateComment.css";
-import { postNewCommentThunk } from "../../redux/comment";
+import "./EditComment.css";
+import { updateCommentThunk } from "../../redux/comment";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { loadPinsThunk } from "../../redux/pin";
-import { CiLocationArrow1 } from "react-icons/ci";
 
-export const CreateComment = () => {
+export const EditComment = ({ comment_id }) => {
   const dispatch = useDispatch();
 
   let { pin_id } = useParams();
   const pins = useSelector((state) => state.pinReducer);
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
-  // console.log("INDVPIN ==>", indvPin.comments);
+  // console.log("COMMENT HERE TO EDIT ==>", pinId.comments[comment_id]);
 
   const user = useSelector((store) => store.session.user);
-  // console.log("USER COMMENT HERE ===>", user);
+  let commentsArray = Object.values(indvPin?.comments || {});
+  console.log("Edit COMMENTSARRAY HERE ===>", commentsArray);
+  console.log("COMMENT ID ==>", comment_id);
+  const commentToFind = commentsArray.find(
+    (comment) => comment.id === comment_id
+  );
+  console.log("COMMENT TO FIND ==>", commentToFind);
 
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState(commentToFind.comment || "");
 
   const [validationErrors, setValidationErrors] = useState({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -40,7 +45,7 @@ export const CreateComment = () => {
     formData.append("comment", comment);
 
     try {
-      await dispatch(postNewCommentThunk(pinId, formData));
+      await dispatch(updateCommentThunk(comment_id, formData));
       setComment("");
       setHasSubmitted(true);
       await dispatch(loadPinsThunk());
@@ -69,7 +74,7 @@ export const CreateComment = () => {
             <div className="form-errors">{validationErrors.comment}</div>
 
             <button type="submit" className="comment-submit-bttn">
-              <CiLocationArrow1 className="comment-arrow" />
+              Save
             </button>
           </div>
         </div>
@@ -78,4 +83,4 @@ export const CreateComment = () => {
   );
 };
 
-export default CreateComment;
+export default EditComment;
