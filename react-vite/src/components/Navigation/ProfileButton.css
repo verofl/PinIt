@@ -1,10 +1,20 @@
 .nav-user-pic {
-  width: 30px;
-  height: 30px;
+  width: 46px;
+  height: 46px;
+  /* height: 15%;
+  width: 15%; */
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .nav-user-pic:hover {
   cursor: pointer;
+}
+
+.nav-user-container {
+  height: 49px;
+  margin-right: 40px;
+  padding: 0;
+  /* border: 1px solid red; */
 }

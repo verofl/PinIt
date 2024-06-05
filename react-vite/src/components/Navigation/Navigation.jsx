@@ -27,8 +27,8 @@ function Navigation() {
         <FaSearch />
         <input type="search" placeholder="Search" className="search-input" />
       </div>
-      <FaBell />
-      <AiFillMessage />
+      <FaBell className="nav-icon" />
+      <AiFillMessage className="nav-icon" />
       <ProfileButton />
     </div>
   );
