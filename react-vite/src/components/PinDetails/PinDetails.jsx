@@ -4,6 +4,7 @@ import { loadPinsThunk } from "../../redux/pin";
 import { useParams } from "react-router-dom";
 import DisplayFeed from "../DisplayFeed/DisplayFeed";
 import "./PinDetails.css";
+import CommentDetails from "../Comments/Comments";
 
 export const PinDetails = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ export const PinDetails = () => {
             />
             <p className="indv-user-fn">{indvPin.user[0].first_name}</p>
           </div>
+          <CommentDetails />
         </div>
       </div>
       <h2 className="indv-more-to-explore">More to Explore</h2>

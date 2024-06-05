@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const CreatePin = () => {
+export const CreatePin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
