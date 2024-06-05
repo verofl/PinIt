@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { loadPinsThunk } from "../../redux/pin";
+import { useModal } from "../../context/Modal";
 
 export const EditComment = ({ comment_id }) => {
   const dispatch = useDispatch();
@@ -12,16 +13,17 @@ export const EditComment = ({ comment_id }) => {
   const pins = useSelector((state) => state.pinReducer);
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
+  const { closeModal } = useModal();
   // console.log("COMMENT HERE TO EDIT ==>", pinId.comments[comment_id]);
 
   const user = useSelector((store) => store.session.user);
   let commentsArray = Object.values(indvPin?.comments || {});
-  console.log("Edit COMMENTSARRAY HERE ===>", commentsArray);
-  console.log("COMMENT ID ==>", comment_id);
+  // console.log("Edit COMMENTSARRAY HERE ===>", commentsArray);
+  // console.log("COMMENT ID ==>", comment_id);
   const commentToFind = commentsArray.find(
     (comment) => comment.id === comment_id
   );
-  console.log("COMMENT TO FIND ==>", commentToFind);
+  // console.log("COMMENT TO FIND ==>", commentToFind);
 
   const [comment, setComment] = useState(commentToFind.comment || "");
 
@@ -46,8 +48,9 @@ export const EditComment = ({ comment_id }) => {
 
     try {
       await dispatch(updateCommentThunk(comment_id, formData));
-      setComment("");
+      // setComment("");
       setHasSubmitted(true);
+      closeModal();
       await dispatch(loadPinsThunk());
     } catch (error) {
       console.error("There was an error creating a new comment", error);
