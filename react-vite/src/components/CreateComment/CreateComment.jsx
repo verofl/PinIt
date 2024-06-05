@@ -26,8 +26,8 @@ export const CreateComment = () => {
   useEffect(() => {
     const errors = {};
 
-    if (comment.length < 2 || comment.length > 255) {
-      errors.review = "Comment must be between 2 and 255 characters.";
+    if (comment.length < 1 || comment.length > 255) {
+      errors.review = "Comment must be between 1 and 255 characters.";
     }
 
     setValidationErrors(errors);

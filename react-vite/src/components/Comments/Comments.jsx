@@ -29,6 +29,11 @@ export const CommentDetails = () => {
 
   let commentsArray = Object.values(indvPin?.comments || {});
   // console.log("COMMENTS ARRAY ===>", commentsArray);
+  if (commentsArray.length > 0) {
+    commentsArray.sort(
+      (a, b) => new Date(b.created_at) - new Date(a.created_at)
+    );
+  }
 
   useEffect(() => {
     const fetchData = async () => {

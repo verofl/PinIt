@@ -1,39 +1,36 @@
-import "./CreatePin.css";
 import { createPinThunk } from "../../redux/pin";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./CreatePin.css";
 
 export const CreatePin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [image_url, setImage_Url] = useState(null);
-  const [imageLoading, setImageLoading] = useState(false);
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [validationErrors, setValidationErrors] = useState({});
+  const [imageLoading, setImageLoading] = useState(false);
+  const [hasSubmitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const errors = {};
 
     if (!image_url) {
-      ("Image is required");
+      errors.image_url = "Image is required";
     }
 
     if (title.length < 2 || title.length > 100) {
-      errors.review =
-        "Title is required and must be between 2 and 100 characters.";
+      errors.title = "Title must be between 2 and 100 characters.";
     }
     if (description.length < 10 || description.length > 255) {
-      errors.review =
-        "Description is required and must be between 10 and 255 characters.";
+      errors.description = "Description must be between 10 and 255 characters.";
     }
     if (category.length < 2 || category.length > 55) {
-      errors.review =
-        "Category is required and must be between 2 and 55 characters.";
+      errors.category = "Category must be between 2 and 55 characters.";
     }
 
     setValidationErrors(errors);
@@ -49,14 +46,17 @@ export const CreatePin = () => {
     formData.append("category", category);
 
     setImageLoading(true);
-    setHasSubmitted(true);
+    setSubmitted(true);
 
     try {
       const newPin = await dispatch(createPinThunk(formData));
+      // console.log("NEW PIN ===>", newPin);
 
       navigate(`/pins/${newPin.id}`);
     } catch (error) {
-      console.error("There was an error creating a new pin", error);
+      console.error("Error creating pin", error);
+    } finally {
+      setImageLoading(false);
     }
   };
 
@@ -73,8 +73,7 @@ export const CreatePin = () => {
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => setImage_Url(e.target.value)}
-            // className="form-input"
+            onChange={(e) => setImage_Url(e.target.files[0])}
           />
           <div className="form-errors">{validationErrors.image_url}</div>
         </div>
@@ -91,7 +90,6 @@ export const CreatePin = () => {
 
           <p className="input-title">Description</p>
           <textarea
-            type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="form-input"
@@ -107,9 +105,11 @@ export const CreatePin = () => {
           />
           <div className="form-errors">{validationErrors.category}</div>
         </div>
+
         <button type="submit" className="form-submit-bttn">
           Submit
         </button>
+
         {imageLoading && Object.values(validationErrors).length > 0 && (
           <p>Loading...</p>
         )}
