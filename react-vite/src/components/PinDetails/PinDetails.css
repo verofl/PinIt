@@ -12,7 +12,8 @@
 }
 
 .indv-img {
-  width: 100%;
+  height: 100%;
+  width: 98%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-top-left-radius: 12px;
@@ -34,12 +35,13 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
+  align-items: center;
 }
 
 .indv-profile-pic {
   aspect-ratio: 1/1;
   border-radius: 50%;
-  width: 20%;
+  height: 50px;
   object-fit: cover;
 }
 
@@ -47,4 +49,9 @@
   width: 100%;
   text-align: center;
   padding-top: 1em;
+}
+
+.indv-user-fn {
+  font-weight: semi-bold;
+  font-size: 22px;
 }

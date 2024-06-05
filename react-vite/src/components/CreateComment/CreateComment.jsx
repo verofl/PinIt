@@ -15,6 +15,9 @@ export const CreateComment = () => {
   const indvPin = pins[pinId];
   console.log("PIN ID ==>", pinId);
 
+  const user = useSelector((store) => store.session.user);
+  console.log("USER COMMENT HERE ===>", user);
+
   const [comment, setComment] = useState("");
 
   const [validationErrors, setValidationErrors] = useState({});
@@ -51,8 +54,8 @@ export const CreateComment = () => {
       <form onSubmit={handleSubmit}>
         <div className="comment-pic-cont">
           <img
-            src={indvPin.user[0].profile_picture}
-            alt={indvPin.user[0].first_name}
+            src={user.profile_picture}
+            alt={user.first_name}
             className="comment-user-pic"
           />
           <div className="create-cont">

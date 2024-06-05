@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadPinsThunk } from "../../redux/pin";
+
 import { useParams } from "react-router-dom";
 import DisplayFeed from "../DisplayFeed/DisplayFeed";
 import "./PinDetails.css";
@@ -10,6 +11,7 @@ export const PinDetails = () => {
   const dispatch = useDispatch();
   const { pin_id } = useParams();
   const pins = useSelector((state) => state.pinReducer);
+
   const [loading, setLoading] = useState(true);
 
   const pinId = Number(pin_id);

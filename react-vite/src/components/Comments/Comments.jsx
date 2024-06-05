@@ -3,11 +3,25 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loadPinsThunk } from "../../redux/pin";
 import CreateComment from "../CreateComment/CreateComment";
+import { loadUsersThunk } from "../../redux/user";
+
+import OpenModalButton from "../../components/OpenModalButton";
+
+import "./Comments.css";
+import DeleteComment from "../DeleteComment/DeleteComment";
 
 export const CommentDetails = () => {
   const dispatch = useDispatch();
   const { pin_id } = useParams();
+
   const pins = useSelector((state) => state.pinReducer);
+  const users = useSelector((state) => state.userReducer);
+  let usersArray = Object.values(users);
+
+  const currentUser = useSelector((store) => store.session.user);
+
+  console.log("LIST USERS ==>>", usersArray);
+
   const [loading, setLoading] = useState(true);
 
   const pinId = Number(pin_id);
@@ -18,6 +32,7 @@ export const CommentDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      await dispatch(loadUsersThunk());
       await dispatch(loadPinsThunk());
       setLoading(false);
     };
@@ -35,13 +50,24 @@ export const CommentDetails = () => {
 
   return (
     <div>
-      <h3>Comments</h3>
+      <h3 className="comment-header">Comments</h3>
       {commentsArray.length > 0 ? (
-        commentsArray.map((comment) => (
-          <div key={comment.id}>
-            <div>{comment.comment}</div>
-          </div>
-        ))
+        <div className="comment-list">
+          {commentsArray.map((comment) => (
+            <div key={comment.id} className="each-comment">
+              <div>{comment.comment}</div>
+              {comment.user_id === currentUser.id && (
+                <div className="modal-button">
+                  <OpenModalButton
+                    buttonText="..."
+                    className="three-dots"
+                    modalComponent={<DeleteComment comment={comment} />}
+                  ></OpenModalButton>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       ) : (
         <p>No comments yet! Add one to start the conversation!</p>
       )}

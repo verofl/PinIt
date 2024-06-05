@@ -1,0 +1,20 @@
+.each-comment {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* border: 1px solid red; */
+  font-size: 20px;
+  display: flex;
+}
+
+.comment-list {
+  max-height: 125px;
+  overflow-y: auto;
+}
+
+.modal-button button {
+  border: 0;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}

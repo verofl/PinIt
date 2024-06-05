@@ -2,7 +2,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid red;
+  justify-content: center;
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: 0.5px solid lightgrey;
+}
+
+.comment-header {
+  font-size: 25px;
 }
 
 .create-cont {
@@ -10,7 +17,6 @@
   flex-direction: row;
   border: 1px solid lightgray;
   border-radius: 50px;
-  margin-top: 30px;
   padding: 10px;
   width: 90%;
 }
@@ -34,7 +40,7 @@
 }
 
 .comment-arrow {
-  font-size: 2em;
+  font-size: 20px;
   color: white;
 }
 
@@ -42,6 +48,6 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
   width: 10%;
-  height: 10%;
+  /* height: 10%; */
   object-fit: cover;
 }

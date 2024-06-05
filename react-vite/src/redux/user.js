@@ -1,4 +1,4 @@
-const LOAD_USERS = "pins/LOAD_USERS";
+const LOAD_USERS = "users/LOAD_USERS";
 
 const loadUsers = (users) => ({
   type: LOAD_USERS,
@@ -7,8 +7,9 @@ const loadUsers = (users) => ({
 
 // Load ALL Users
 export const loadUsersThunk = () => async (dispatch) => {
-  const res = await fetch("/api/users");
+  const res = await fetch("/api/users/list");
   const data = await res.json();
+  console.log("USER DATA", data);
 
   if (!res.ok) {
     return { errors: data };
@@ -22,7 +23,7 @@ function userReducer(state = {}, action) {
   switch (action.type) {
     case LOAD_USERS: {
       const newState = {};
-      action.users.forEach((eachUser) => {
+      action.users.users.forEach((eachUser) => {
         newState[eachUser.id] = eachUser;
       });
       return newState;
