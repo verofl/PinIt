@@ -1,0 +1,10 @@
+/* .delete-dot-cont {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+} */
+
+.delete-dropdown {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  position: absolute;
+}

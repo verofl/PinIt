@@ -56,14 +56,9 @@ export const CommentDetails = () => {
           {commentsArray.map((comment) => (
             <div key={comment.id} className="each-comment">
               <div>{comment.comment}</div>
+              {/* <div>{typeof comment.id}</div> */}
               {comment.user_id === currentUser.id && (
-                <div className="modal-button">
-                  <OpenModalButton
-                    buttonText="..."
-                    className="three-dots"
-                    modalComponent={<DeleteComment comment={comment} />}
-                  ></OpenModalButton>
-                </div>
+                <DeleteComment comment_id={comment.id} />
               )}
             </div>
           ))}

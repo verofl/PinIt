@@ -11,10 +11,10 @@
   overflow-y: auto;
 }
 
-.modal-button button {
-  border: 0;
+/* .modal-button button {
+  border: 1px solid red;
   background-color: transparent;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-}
+} */
