@@ -15,4 +15,6 @@
 
 .delete-dots {
   cursor: pointer;
+  padding-left: 10px;
+  padding-top: 7px;
 }
