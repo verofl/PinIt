@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { loadPinsThunk } from "../../redux/pin";
 import { useModal } from "../../context/Modal";
-// import "./CreatePin.css";
+import "./EditPin.css";
 import DeletePin from "../DeletePin/DeletePin";
 
 export const EditPin = ({ pin_id }) => {
@@ -14,11 +14,8 @@ export const EditPin = ({ pin_id }) => {
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
   const { closeModal } = useModal();
-  console.log("INDV PIN TO UPDATE HERE ==>", indvPin);
 
-  console.log("INDVPIN IMAGE URL ==> ", indvPin.image_url);
-
-  const [image_url, setImage_Url] = useState(indvPin.image_url || null);
+  const [image_url, setImage_Url] = useState(indvPin.image_url || "");
   const [title, setTitle] = useState(indvPin.title || "");
   const [description, setDescription] = useState(indvPin.description || "");
   const [category, setCategory] = useState(indvPin.category || "");
@@ -60,67 +57,71 @@ export const EditPin = ({ pin_id }) => {
 
     try {
       await dispatch(updatePinThunk(pin_id, formData));
-      // console.log("NEW PIN ===>", newPin);
       closeModal();
       await dispatch(loadPinsThunk());
-      // .then(() => {
-      //   navigate(`/pins/${pin_id}`);
-      // });
     } catch (error) {
-      console.error("Error creating pin", error);
+      console.error("Error updating pin", error);
     } finally {
       setImageLoading(false);
     }
   };
 
+  const isSubmitDisabled = Object.values(validationErrors).length > 0;
+
   return (
-    <div>
-      <h1>Create Your New Pin</h1>
+    <div className="edit-modal-cont">
+      <h1 className="update-header">Update Pin</h1>
       <form
-        className="pin-form"
+        className="indv-edit-pin-form"
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
-        <div className="image-cont">
-          <p className="input-title">Image</p>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage_Url(e.target.files[0])}
-          />
-          <div className="form-errors">{validationErrors.image_url}</div>
+        <div className="indv-edit-pin-cont">
+          <div className="image-edi-cont">
+            <p className="input-edit-title">Image</p>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImage_Url(e.target.value)}
+              className="form-input"
+            />
+            <div className="form-errors">{validationErrors.image_url}</div>
+          </div>
+
+          <div className="create-edit-right-side">
+            <p className="input-edit-title">Title</p>
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="form-input"
+            />
+            <div className="form-errors">{validationErrors.title}</div>
+
+            <p className="input-edit-title">Description</p>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="form-input"
+            />
+            <div className="form-errors">{validationErrors.description}</div>
+
+            <p className="input-edit-title">Category</p>
+            <input
+              type="text"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="form-input"
+            />
+            <div className="form-errors">{validationErrors.category}</div>
+          </div>
         </div>
-
-        <div className="create-right-side">
-          <p className="input-title">Title</p>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="form-input"
-          />
-          <div className="form-errors">{validationErrors.title}</div>
-
-          <p className="input-title">Description</p>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="form-input"
-          />
-          <div className="form-errors">{validationErrors.description}</div>
-
-          <p className="input-title">Category</p>
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="form-input"
-          />
-          <div className="form-errors">{validationErrors.category}</div>
-        </div>
-
-        <button type="submit" className="form-submit-bttn">
-          Submit
+        <button
+          type="submit"
+          className="form-edit-bttn"
+          disabled={isSubmitDisabled}
+        >
+          Update
         </button>
 
         {imageLoading && Object.values(validationErrors).length > 0 && (

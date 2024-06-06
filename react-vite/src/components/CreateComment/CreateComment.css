@@ -39,6 +39,11 @@
   cursor: pointer;
 }
 
+.comment-submit-bttn[disabled] {
+  background-color: #384d48ba;
+  cursor: not-allowed;
+}
+
 .comment-arrow {
   font-size: 20px;
   color: white;

@@ -13,10 +13,8 @@ export const CreateComment = () => {
   const pins = useSelector((state) => state.pinReducer);
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
-  // console.log("INDVPIN ==>", indvPin.comments);
 
   const user = useSelector((store) => store.session.user);
-  // console.log("USER COMMENT HERE ===>", user);
 
   const [comment, setComment] = useState("");
 
@@ -26,8 +24,8 @@ export const CreateComment = () => {
   useEffect(() => {
     const errors = {};
 
-    if (comment.length < 1 || comment.length > 255) {
-      errors.review = "Comment must be between 1 and 255 characters.";
+    if (comment.length > 255) {
+      errors.comment = "Comment must be less than 255 characters.";
     }
 
     setValidationErrors(errors);
@@ -49,6 +47,8 @@ export const CreateComment = () => {
     }
   };
 
+  const isSubmitDisabled = Object.values(validationErrors).length > 0;
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -65,10 +65,16 @@ export const CreateComment = () => {
               placeholder="Add a comment"
               onChange={(e) => setComment(e.target.value)}
               className="comment-input"
-            ></input>
-            <div className="form-errors">{validationErrors.comment}</div>
+            />
+            <div className="form-errors error-layout">
+              {validationErrors.comment}
+            </div>
 
-            <button type="submit" className="comment-submit-bttn">
+            <button
+              type="submit"
+              className="comment-submit-bttn"
+              disabled={isSubmitDisabled}
+            >
               <CiLocationArrow1 className="comment-arrow" />
             </button>
           </div>

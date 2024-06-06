@@ -52,13 +52,20 @@ export const DeleteComment = ({ comment_id }) => {
       {showMenu && (
         <div className="delete-dropdown" ref={ulRef}>
           {/* <button onClick={deleteCommentEvent}>Edit</button> */}
-          <OpenModalMenuItem
-            itemText="Edit"
-            className="edit-bttn"
-            onItemClick={closeMenu}
-            modalComponent={<EditComment comment_id={comment_id} />}
-          />
-          <button onClick={deleteCommentEvent}>Delete</button>
+          <span className="edit-bttn spans" onClick={closeMenu}>
+            <OpenModalMenuItem
+              itemText="Edit"
+              onItemClick={closeMenu}
+              modalComponent={<EditComment comment_id={comment_id} />}
+            />
+          </span>
+
+          <span
+            onClick={deleteCommentEvent}
+            className="delete-comment-bttn spans"
+          >
+            Delete
+          </span>
         </div>
       )}
     </div>

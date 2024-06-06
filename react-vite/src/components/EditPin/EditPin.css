@@ -1,0 +1,41 @@
+.indv-edit-pin-cont {
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
+
+.indv-edit-pin-form input,
+.indv-edit-pin-form textarea {
+  width: 100%;
+}
+.edit-cont {
+  display: flex;
+  justify-content: end;
+}
+
+.edit-icon {
+  font-size: 40px;
+  color: #384d48;
+}
+
+.form-edit-bttn {
+  border: 0px;
+  background-color: #384d48;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 20px;
+  justify-items: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.form-edit-bttn:hover {
+  /* transform: scale(1.15); */
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.form-edit-bttn[disabled] {
+  cursor: not-allowed;
+}

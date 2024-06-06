@@ -60,7 +60,7 @@ export const EditComment = ({ comment_id }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="comment-pic-cont">
+        <div className="comment-pic-container">
           <img
             src={user.profile_picture}
             alt={user.first_name}
@@ -76,7 +76,7 @@ export const EditComment = ({ comment_id }) => {
             ></input>
             <div className="form-errors">{validationErrors.comment}</div>
 
-            <button type="submit" className="comment-submit-bttn">
+            <button type="submit" className="comment-save-bttn">
               Save
             </button>
           </div>

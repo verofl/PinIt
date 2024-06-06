@@ -106,7 +106,11 @@ export const CreatePin = () => {
           <div className="form-errors">{validationErrors.category}</div>
         </div>
 
-        <button type="submit" className="form-submit-bttn">
+        <button
+          type="submit"
+          className="form-submit-bttn"
+          disabled={Object.keys(validationErrors).length > 0}
+        >
           Submit
         </button>
 

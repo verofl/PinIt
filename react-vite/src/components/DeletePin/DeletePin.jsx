@@ -17,9 +17,17 @@ export const DeletePin = ({ pin_id }) => {
   };
 
   return (
-    <div>
-      <button onClick={closeModal}>Cancel</button>
-      <button onClick={deletePinEvent}> Delete</button>
+    <div className="edit-delete-pin">
+      <button onClick={closeModal} className="cancel-button delete-pin-bttns">
+        Cancel
+      </button>
+      <button
+        onClick={deletePinEvent}
+        className="delete-button delete-pin-bttns"
+      >
+        {" "}
+        Delete
+      </button>
     </div>
   );
 };

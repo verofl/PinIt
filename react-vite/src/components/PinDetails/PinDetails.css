@@ -30,6 +30,20 @@
   grid-template-rows: repeat(2, auto);
 }
 
+.indv-pin-info li {
+  list-style-type: none;
+}
+
+.edit-cont {
+  display: flex;
+  justify-content: end;
+}
+
+.edit-icon {
+  font-size: 40px;
+  color: #384d48;
+}
+
 .indv-user-info {
   width: 50%;
   display: flex;

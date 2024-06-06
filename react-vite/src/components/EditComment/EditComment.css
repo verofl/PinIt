@@ -1,11 +1,11 @@
-.comment-pic-cont {
+.comment-pic-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
+  padding: 20px;
   margin-top: 10px;
-  border-top: 0.5px solid lightgrey;
+  /* border-top: 0.5px solid lightgrey; */
 }
 
 .comment-header {
@@ -30,11 +30,11 @@
   outline: none;
 }
 
-.comment-submit-bttn {
+.comment-save-bttn {
   border: 0px;
   background-color: #384d48;
   color: white;
-  border-radius: 50%;
+  border-radius: 12px;
   padding: 10px;
   cursor: pointer;
 }

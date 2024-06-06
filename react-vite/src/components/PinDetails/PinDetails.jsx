@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadPinsThunk } from "../../redux/pin";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import EditPin from "../EditPin/EditPin";
-
+import { FaEdit } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import DisplayFeed from "../DisplayFeed/DisplayFeed";
 import "./PinDetails.css";
@@ -81,7 +81,11 @@ export const PinDetails = () => {
           <div className="indv-pin-info">
             {isOwner && (
               <OpenModalMenuItem
-                itemText="Edit"
+                itemText={
+                  <div className="edit-cont">
+                    <FaEdit className="edit-icon" />
+                  </div>
+                }
                 className="edit-bttn"
                 onItemClick={closeMenu}
                 modalComponent={<EditPin pin_id={indvPin.id} />}
@@ -101,7 +105,7 @@ export const PinDetails = () => {
           <CommentDetails />
         </div>
       </div>
-      <h2 className="indv-more-to-explore">More to Explore</h2>
+      {/* <h2 className="indv-more-to-explore">More to Explore</h2> */}
       <DisplayFeed />
     </div>
   );
