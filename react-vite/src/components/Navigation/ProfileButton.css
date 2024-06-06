@@ -40,3 +40,14 @@
   padding: 2px;
   color: white;
 }
+
+.fa-user-circle {
+  font-size: 35px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.logout-bttn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

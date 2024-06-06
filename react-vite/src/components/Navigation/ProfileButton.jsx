@@ -45,7 +45,7 @@ function ProfileButton() {
   return (
     <>
       <div onClick={toggleMenu} className="nav-user-container">
-        {!user && <FaUserCircle />}
+        {!user && <FaUserCircle className="fa-user-circle" />}
         {user && (
           <img src={user.profile_picture} className="nav-user-pic"></img>
         )}
