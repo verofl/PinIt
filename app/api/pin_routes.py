@@ -102,17 +102,17 @@ def update_pin(pin_id):
             upload = upload_file_to_s3(image)
             print(upload)
 
-            if "url" not in upload:
-            # if the dictionary doesn't have a url key
-            # it means that there was an error when you tried to upload
-            # so you send back that error message (and you printed it above)
-                return render_template("pin_form.html", form=form, errors=[upload])
 
         indvPin.image_url = upload["url"]
         indvPin.title = form.data["title"]
         indvPin.description = form.data["description"]
         indvPin.category = form.data["category"]
 
+        if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when you tried to upload
+            # so you send back that error message (and you printed it above)
+                return render_template("pin_form.html", form=form, errors=[upload])
         db.session.commit()
 
         return indvPin.to_dict(), 200

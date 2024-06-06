@@ -12,7 +12,7 @@ class PinForm(FlaskForm):
     category = StringField("Category", validators=[DataRequired()])
 
 class EditPinForm(FlaskForm):
-    image_url = FileField("Pin Image", validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
+    image_url = FileField("Pin Image", validators=[FileAllowed(list(ALLOWED_EXTENSIONS))])
     title= StringField("Title", validators=[DataRequired()])
     description = StringField("Description", validators=[DataRequired()])
     category = StringField("Category", validators=[DataRequired()])

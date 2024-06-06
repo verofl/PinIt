@@ -15,7 +15,7 @@ export const EditPin = ({ pin_id }) => {
   const indvPin = pins[pinId];
   const { closeModal } = useModal();
 
-  const [image_url, setImage_Url] = useState(indvPin.image_url || "");
+  const [image_url, setImage_Url] = useState(indvPin.image_url || null);
   const [title, setTitle] = useState(indvPin.title || "");
   const [description, setDescription] = useState(indvPin.description || "");
   const [category, setCategory] = useState(indvPin.category || "");
@@ -25,10 +25,6 @@ export const EditPin = ({ pin_id }) => {
 
   useEffect(() => {
     const errors = {};
-
-    if (!image_url) {
-      errors.image_url = "Image is required";
-    }
 
     if (title.length < 2 || title.length > 100) {
       errors.title = "Title must be between 2 and 100 characters.";
@@ -41,7 +37,7 @@ export const EditPin = ({ pin_id }) => {
     }
 
     setValidationErrors(errors);
-  }, [image_url, title, description, category]);
+  }, [title, description, category]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,13 +52,20 @@ export const EditPin = ({ pin_id }) => {
     setSubmitted(true);
 
     try {
-      await dispatch(updatePinThunk(pin_id, formData));
+      await dispatch(updatePinThunk(pinId, formData));
       closeModal();
       await dispatch(loadPinsThunk());
     } catch (error) {
       console.error("Error updating pin", error);
     } finally {
       setImageLoading(false);
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage_Url(file);
     }
   };
 
@@ -82,10 +85,9 @@ export const EditPin = ({ pin_id }) => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setImage_Url(e.target.value)}
+              onChange={handleFileChange}
               className="form-input"
             />
-            <div className="form-errors">{validationErrors.image_url}</div>
           </div>
 
           <div className="create-edit-right-side">

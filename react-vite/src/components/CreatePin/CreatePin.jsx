@@ -51,7 +51,7 @@ export const CreatePin = () => {
     try {
       const newPin = await dispatch(createPinThunk(formData));
       // console.log("NEW PIN ===>", newPin);
-
+      console.log("CREATE FORM DATA ==>", formData);
       navigate(`/pins/${newPin.id}`);
     } catch (error) {
       console.error("Error creating pin", error);
