@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadPinsThunk } from "../../redux/pin";
 import CreateComment from "../CreateComment/CreateComment";
 import { loadUsersThunk } from "../../redux/user";
-
 import OpenModalButton from "../../components/OpenModalButton";
-
 import "./Comments.css";
 import DeleteComment from "../DeleteComment/DeleteComment";
 
@@ -20,15 +18,13 @@ export const CommentDetails = () => {
 
   const currentUser = useSelector((store) => store.session.user);
 
-  // console.log("LIST USERS ==>>", usersArray);
-
   const [loading, setLoading] = useState(true);
 
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
 
   let commentsArray = Object.values(indvPin?.comments || {});
-  // console.log("COMMENTS ARRAY ===>", commentsArray);
+
   if (commentsArray.length > 0) {
     commentsArray.sort(
       (a, b) => new Date(b.created_at) - new Date(a.created_at)
@@ -61,17 +57,18 @@ export const CommentDetails = () => {
           {commentsArray.map((comment) => (
             <div key={comment.id} className="each-comment">
               <div>{comment.comment}</div>
-              {/* <div>{typeof comment.id}</div> */}
-              {comment.user_id === currentUser.id && (
+              {currentUser && comment.user_id === currentUser.id && (
                 <DeleteComment comment_id={comment.id} />
               )}
             </div>
           ))}
         </div>
-      ) : (
+      ) : currentUser ? (
         <p>No comments yet! Add one to start the conversation!</p>
+      ) : (
+        <p>No comments yet! Log in to start the conversation!</p>
       )}
-      <CreateComment />
+      {currentUser && <CreateComment />}
     </div>
   );
 };

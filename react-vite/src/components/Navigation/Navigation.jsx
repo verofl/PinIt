@@ -4,8 +4,11 @@ import "./Navigation.css";
 import { FaSearch } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 function Navigation() {
+  const currentUser = useSelector((store) => store.session.user);
+
   const navigate = useNavigate();
   return (
     <div className="nav-bar">
@@ -20,9 +23,11 @@ function Navigation() {
       <NavLink to="/" className="nav-navlink">
         Explore
       </NavLink>
-      <NavLink to="/pins/new" className="nav-navlink">
-        Create
-      </NavLink>
+      {currentUser && (
+        <NavLink to="/pins/new" className="nav-navlink">
+          Create
+        </NavLink>
+      )}
       <div className="search-bar">
         <FaSearch />
         <input type="search" placeholder="Search" className="search-input" />

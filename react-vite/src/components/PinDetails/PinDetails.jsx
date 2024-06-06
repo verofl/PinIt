@@ -65,7 +65,10 @@ export const PinDetails = () => {
   //   return <p>Pin not found</p>;
   // }
 
-  const isOwner = currentUser.id === indvPin.user_id;
+  let isOwner;
+  if (currentUser) {
+    isOwner = currentUser.id === indvPin.user_id;
+  }
 
   return (
     <div>
@@ -94,14 +97,16 @@ export const PinDetails = () => {
             <h1 className="indv-title">{indvPin.title}</h1>
             <p className="indv-desc">{indvPin.description}</p>
           </div>
-          <div className="indv-user-info">
-            <img
-              src={indvPin.user[0]?.profile_picture}
-              alt={indvPin.user[0]?.first_name}
-              className="indv-profile-pic"
-            />
-            <p className="indv-user-fn">{indvPin.user[0]?.first_name}</p>
-          </div>
+          {currentUser && (
+            <div className="indv-user-info">
+              <img
+                src={indvPin.user[0]?.profile_picture}
+                alt={indvPin.user[0]?.first_name}
+                className="indv-profile-pic"
+              />
+              <p className="indv-user-fn">{indvPin.user[0]?.first_name}</p>
+            </div>
+          )}
           <CommentDetails />
         </div>
       </div>

@@ -18,3 +18,25 @@
   padding: 0;
   /* border: 1px solid red; */
 }
+
+.profile-dropdown {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 12px;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  padding: 10px;
+}
+
+.profile-dropdown li {
+  list-style-type: none;
+}
+
+.logout-bttn {
+  margin-top: 5px;
+  background-color: #384d48;
+  border-radius: 5px;
+  padding: 2px;
+  color: white;
+}

@@ -7,6 +7,7 @@ import "./CreatePin.css";
 export const CreatePin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const currentUser = useSelector((store) => store.session.user);
 
   const [image_url, setImage_Url] = useState(null);
   const [title, setTitle] = useState("");
@@ -76,6 +77,7 @@ export const CreatePin = () => {
             onChange={(e) => setImage_Url(e.target.files[0])}
           />
           <div className="form-errors">{validationErrors.image_url}</div>
+          <div></div>
         </div>
 
         <div className="create-right-side">

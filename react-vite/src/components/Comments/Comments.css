@@ -4,17 +4,14 @@
   /* border: 1px solid red; */
   font-size: 20px;
   display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .comment-list {
   max-height: 125px;
   overflow-y: auto;
+  max-width: 100%;
 }
-
-/* .modal-button button {
-  border: 1px solid red;
-  background-color: transparent;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-} */
