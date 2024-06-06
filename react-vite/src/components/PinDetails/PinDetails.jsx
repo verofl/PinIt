@@ -57,7 +57,7 @@ export const PinDetails = () => {
     fetchData();
   }, [dispatch]);
 
-  if (loading || !indvPin) {
+  if (loading || !indvPin.user) {
     return <p>Loading...</p>;
   }
 

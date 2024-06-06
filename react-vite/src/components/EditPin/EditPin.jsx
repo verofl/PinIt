@@ -62,9 +62,10 @@ export const EditPin = ({ pin_id }) => {
       await dispatch(updatePinThunk(pin_id, formData));
       // console.log("NEW PIN ===>", newPin);
       closeModal();
-      await dispatch(loadPinsThunk()).then(() => {
-        navigate(`/pins/${pin_id}`);
-      });
+      await dispatch(loadPinsThunk());
+      // .then(() => {
+      //   navigate(`/pins/${pin_id}`);
+      // });
     } catch (error) {
       console.error("Error creating pin", error);
     } finally {
