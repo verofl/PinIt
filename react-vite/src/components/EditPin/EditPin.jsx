@@ -118,19 +118,25 @@ export const EditPin = ({ pin_id }) => {
             <div className="form-errors">{validationErrors.category}</div>
           </div>
         </div>
-        <button
-          type="submit"
-          className="form-edit-bttn"
-          disabled={isSubmitDisabled}
-        >
-          Update
-        </button>
+
+        <div className="buttons-container">
+          <button
+            type="submit"
+            className="form-edit-bttn"
+            disabled={isSubmitDisabled}
+          >
+            Update
+          </button>
+          <button type="button" onClick={closeModal} className="cancel-button">
+            Cancel
+          </button>
+        </div>
 
         {imageLoading && Object.values(validationErrors).length > 0 && (
           <p>Loading...</p>
         )}
       </form>
-      <DeletePin pin_id={pin_id} />
+      {/* <DeletePin pin_id={pin_id} /> */}
     </div>
   );
 };

@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import DisplayFeed from "../DisplayFeed/DisplayFeed";
 import "./PinDetails.css";
 import CommentDetails from "../Comments/Comments";
+import { MdDeleteForever } from "react-icons/md";
+import DeletePin from "../DeletePin/DeletePin";
 
 export const PinDetails = () => {
   const dispatch = useDispatch();
@@ -83,16 +85,28 @@ export const PinDetails = () => {
         <div className="indv-right-side">
           <div className="indv-pin-info">
             {isOwner && (
-              <OpenModalMenuItem
-                itemText={
-                  <div className="edit-cont">
-                    <FaEdit className="edit-icon" />
-                  </div>
-                }
-                className="edit-bttn"
-                onItemClick={closeMenu}
-                modalComponent={<EditPin pin_id={indvPin.id} />}
-              />
+              <div className="icon-bttns">
+                <OpenModalMenuItem
+                  itemText={
+                    <div className="edit-cont">
+                      <FaEdit className="edit-icon" />
+                    </div>
+                  }
+                  className="edit-bttn"
+                  onItemClick={closeMenu}
+                  modalComponent={<EditPin pin_id={indvPin.id} />}
+                />
+                <OpenModalMenuItem
+                  itemText={
+                    <div className="edit-cont">
+                      <MdDeleteForever className="delete-icon" />
+                    </div>
+                  }
+                  className="delete-bttn"
+                  onItemClick={closeMenu}
+                  modalComponent={<DeletePin pin_id={indvPin.id} />}
+                />
+              </div>
             )}
             <h1 className="indv-title">{indvPin.title}</h1>
             <p className="indv-desc">{indvPin.description}</p>

@@ -18,16 +18,20 @@ export const DeletePin = ({ pin_id }) => {
 
   return (
     <div className="edit-delete-pin">
-      <button onClick={closeModal} className="cancel-button delete-pin-bttns">
-        Cancel
-      </button>
-      <button
-        onClick={deletePinEvent}
-        className="delete-button delete-pin-bttns"
-      >
-        {" "}
-        Delete
-      </button>
+      <h1>Delete Confirmation</h1>
+      <p>Are you sure you want to delete this pin?</p>
+      <div className="delete-bttns-cont">
+        <button onClick={closeModal} className="delete-pin-bttns cancel-b">
+          Cancel
+        </button>
+        <button
+          onClick={deletePinEvent}
+          className="delete-button delete-pin-bttns"
+        >
+          {" "}
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

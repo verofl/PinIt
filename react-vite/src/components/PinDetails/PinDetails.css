@@ -69,3 +69,20 @@
   font-weight: semi-bold;
   font-size: 22px;
 }
+
+.delete-icon {
+  font-size: 40px;
+  color: rgb(127, 0, 0);
+}
+
+.delete-icon:hover,
+.edit-icon:hover {
+  cursor: pointer;
+}
+
+.icon-bttns {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: end;
+}

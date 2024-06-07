@@ -25,9 +25,9 @@
   border-radius: 12px;
   padding: 10px;
   font-size: 20px;
-  justify-items: center;
-  display: block;
-  margin: 0 auto;
+  /* justify-items: center; */
+  /* display: block; */
+  /* margin: 0 auto; */
 }
 
 .form-edit-bttn:hover {
@@ -38,4 +38,24 @@
 
 .form-edit-bttn[disabled] {
   cursor: not-allowed;
+}
+
+.cancel-button {
+  border: 0px;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  /* margin-bottom: 50px; */
+}
+
+.cancel-button:hover {
+  border: 1px solid black;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
