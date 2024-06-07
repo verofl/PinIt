@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadPinsThunk } from "../../redux/pin";
 import CreateComment from "../CreateComment/CreateComment";
 import { loadUsersThunk } from "../../redux/user";
-import OpenModalButton from "../../components/OpenModalButton";
+// import OpenModalButton from "../../components/OpenModalButton";
 import "./Comments.css";
 import DeleteComment from "../DeleteComment/DeleteComment";
 
@@ -14,7 +14,7 @@ export const CommentDetails = () => {
 
   const pins = useSelector((state) => state.pinReducer);
   const users = useSelector((state) => state.userReducer);
-  let usersArray = Object.values(users);
+  // let usersArray = Object.values(users);
 
   const currentUser = useSelector((store) => store.session.user);
 

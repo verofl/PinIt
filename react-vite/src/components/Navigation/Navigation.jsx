@@ -13,7 +13,7 @@ function Navigation() {
   return (
     <div className="nav-bar">
       <img
-        src="../public/P.png"
+        src="https://mypinitbucket.s3.amazonaws.com/P.png"
         className="nav-logo"
         onClick={() => navigate(`/feed`)}
       ></img>

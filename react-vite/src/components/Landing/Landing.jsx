@@ -4,7 +4,10 @@ export const Landing = () => {
   return (
     <div className="ladngin-cont">
       <div className="full-screen-image-container">
-        <img src={"./public/landing.jpg"} className="full-screen-image"></img>
+        <img
+          src={"https://mypinitbucket.s3.amazonaws.com/landing.jpg"}
+          className="full-screen-image"
+        ></img>
       </div>
       <div className="heading-cont">
         <h1 className="pinit-heading">

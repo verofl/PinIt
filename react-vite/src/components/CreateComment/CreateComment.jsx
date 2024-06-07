@@ -12,7 +12,7 @@ export const CreateComment = () => {
   let { pin_id } = useParams();
   const pins = useSelector((state) => state.pinReducer);
   const pinId = Number(pin_id);
-  const indvPin = pins[pinId];
+  // const indvPin = pins[pinId];
 
   const user = useSelector((store) => store.session.user);
 

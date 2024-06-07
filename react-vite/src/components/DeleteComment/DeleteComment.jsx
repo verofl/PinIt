@@ -11,7 +11,7 @@ import "./DeleteComment.css";
 export const DeleteComment = ({ comment_id }) => {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const { closeModal } = useModal();
+  // const { closeModal } = useModal();
 
   const ulRef = useRef();
 

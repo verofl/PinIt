@@ -1,6 +1,6 @@
 import { updatePinThunk } from "../../redux/pin";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { loadPinsThunk } from "../../redux/pin";
 import { useModal } from "../../context/Modal";
@@ -9,7 +9,7 @@ import DeletePin from "../DeletePin/DeletePin";
 
 export const EditPin = ({ pin_id }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const pins = useSelector((state) => state.pinReducer);
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
