@@ -22,6 +22,27 @@ export const EditPin = ({ pin_id }) => {
   const [validationErrors, setValidationErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
   const [hasSubmitted, setSubmitted] = useState(false);
+  const [preview, setPreview] = useState();
+
+  useEffect(() => {
+    const handlePreview = async () => {
+      if (!image_url) {
+        setPreview(indvPin.image_url || undefined);
+        return;
+      }
+
+      try {
+        const objectUrl = URL.createObjectURL(image_url);
+        setPreview(objectUrl);
+        return () => URL.revokeObjectURL(objectUrl);
+      } catch (error) {
+        console.error("Error creating object URL:", error);
+        setPreview(indvPin.image_url || undefined);
+      }
+    };
+
+    handlePreview();
+  }, [image_url, indvPin.image_url]);
 
   useEffect(() => {
     const errors = {};
@@ -81,6 +102,9 @@ export const EditPin = ({ pin_id }) => {
       >
         <div className="indv-edit-pin-cont">
           <div className="image-edi-cont">
+            {indvPin.image_url && (
+              <img className="image-preview" src={preview} />
+            )}
             <p className="input-edit-title">Image</p>
             <input
               type="file"
@@ -104,7 +128,7 @@ export const EditPin = ({ pin_id }) => {
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="form-input"
+              className="form-input description"
             />
             <div className="form-errors">{validationErrors.description}</div>
 
