@@ -23,3 +23,8 @@
 .signup-modal-bttn:hover {
   transform: scale(1.1);
 }
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}

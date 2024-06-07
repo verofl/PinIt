@@ -8,8 +8,8 @@ function SignupFormModal() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [first_name, setfirst_name] = useState("");
-  const [last_name, setlast_name] = useState("");
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -17,16 +17,31 @@ function SignupFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newErrors = {};
 
+    if (username.length < 2 || username.length > 50) {
+      newErrors.username = "Username must be between 2 and 50 characters.";
+    }
+    if (!email.includes("@") || !email.includes(".")) {
+      newErrors.email = "Email address is invalid.";
+    }
+    if (first_name.length < 2 || first_name.length > 50) {
+      newErrors.first_name = "First name must be between 2 and 50 characters.";
+    }
+    if (last_name.length < 2 || last_name.length > 50) {
+      newErrors.last_name = "Last name must be between 2 and 50 characters.";
+    }
+    if (password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters.";
+    }
     if (password !== confirmPassword) {
-      return setErrors({
-        confirmPassword:
-          "Confirm Password field must be the same as the Password field",
-      });
+      newErrors.confirmPassword = "Passwords must match.";
     }
 
-    // let profile_picture =
-    //   "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717723809/WuberEats/cat-pfp_ul67ue.jpg";
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     let profile_picture =
       "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717724139/WuberEats/rick-roll_naod17.jpg";
@@ -62,8 +77,10 @@ function SignupFormModal() {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
+          {errors.username && (
+            <p className="error-message">{errors.username}</p>
+          )}
         </label>
-        {errors.username && <p>{errors.username}</p>}
         <label>
           Email
           <input
@@ -72,31 +89,32 @@ function SignupFormModal() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          {errors.email && <p className="error-message">{errors.email}</p>}
         </label>
-        {errors.email && <p>{errors.email}</p>}
-
         <label>
           First Name
           <input
             type="text"
             value={first_name}
-            onChange={(e) => setfirst_name(e.target.value)}
+            onChange={(e) => setFirstName(e.target.value)}
             required
           />
+          {errors.first_name && (
+            <p className="error-message">{errors.first_name}</p>
+          )}
         </label>
-        {errors.first_name && <p>{errors.first_name}</p>}
-
         <label>
           Last Name
           <input
             type="text"
             value={last_name}
-            onChange={(e) => setlast_name(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
             required
           />
+          {errors.last_name && (
+            <p className="error-message">{errors.last_name}</p>
+          )}
         </label>
-        {errors.last_name && <p>{errors.last_name}</p>}
-
         <label>
           Password
           <input
@@ -105,8 +123,10 @@ function SignupFormModal() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          {errors.password && (
+            <p className="error-message">{errors.password}</p>
+          )}
         </label>
-        {errors.password && <p>{errors.password}</p>}
         <label>
           Confirm Password
           <input
@@ -115,8 +135,10 @@ function SignupFormModal() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
+          {errors.confirmPassword && (
+            <p className="error-message">{errors.confirmPassword}</p>
+          )}
         </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <button type="submit" className="signup-modal-bttn">
           Sign Up
         </button>
