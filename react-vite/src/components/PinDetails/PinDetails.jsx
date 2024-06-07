@@ -21,8 +21,8 @@ export const PinDetails = () => {
 
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
-  console.log("CURRENT USER ==>", currentUser);
-  console.log("PIN DETAILS ==>", indvPin);
+  // console.log("CURRENT USER ==>", currentUser);
+  // console.log("PIN DETAILS ==>", indvPin);
 
   const ulRef = useRef();
 

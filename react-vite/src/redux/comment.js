@@ -45,7 +45,7 @@ export const updateCommentThunk = (comment_id, comment) => async (dispatch) => {
     });
 
     const data = await res.json();
-    console.log(`res ${data}`);
+    // console.log(`res ${data}`);
 
     if (!res.ok) {
       return { errors: data };

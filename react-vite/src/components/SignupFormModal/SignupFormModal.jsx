@@ -25,8 +25,11 @@ function SignupFormModal() {
       });
     }
 
+    // let profile_picture =
+    //   "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717723809/WuberEats/cat-pfp_ul67ue.jpg";
+
     let profile_picture =
-      "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717723809/WuberEats/cat-pfp_ul67ue.jpg";
+      "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717724139/WuberEats/rick-roll_naod17.jpg";
 
     const serverResponse = await dispatch(
       thunkSignup({
