@@ -6,8 +6,10 @@ import "./SignupForm.css";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [first_name, setfirst_name] = useState("");
+  const [last_name, setlast_name] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -23,10 +25,19 @@ function SignupFormModal() {
       });
     }
 
+    // let profile_picture =
+    //   "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717723809/WuberEats/cat-pfp_ul67ue.jpg";
+
+    let profile_picture =
+      "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717724139/WuberEats/rick-roll_naod17.jpg";
+
     const serverResponse = await dispatch(
       thunkSignup({
-        email,
         username,
+        email,
+        first_name,
+        last_name,
+        profile_picture,
         password,
       })
     );
@@ -42,17 +53,7 @@ function SignupFormModal() {
     <>
       <h1>Sign Up</h1>
       {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
+      <form onSubmit={handleSubmit} className="signup-form-modal">
         <label>
           Username
           <input
@@ -63,6 +64,39 @@ function SignupFormModal() {
           />
         </label>
         {errors.username && <p>{errors.username}</p>}
+        <label>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        {errors.email && <p>{errors.email}</p>}
+
+        <label>
+          First Name
+          <input
+            type="text"
+            value={first_name}
+            onChange={(e) => setfirst_name(e.target.value)}
+            required
+          />
+        </label>
+        {errors.first_name && <p>{errors.first_name}</p>}
+
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={last_name}
+            onChange={(e) => setlast_name(e.target.value)}
+            required
+          />
+        </label>
+        {errors.last_name && <p>{errors.last_name}</p>}
+
         <label>
           Password
           <input
@@ -83,7 +117,9 @@ function SignupFormModal() {
           />
         </label>
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="signup-modal-bttn">
+          Sign Up
+        </button>
       </form>
     </>
   );

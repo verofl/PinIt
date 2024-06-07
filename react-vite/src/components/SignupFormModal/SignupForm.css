@@ -1,0 +1,25 @@
+.signup-form-modal {
+  /* border-radius: 12px; */
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.signup-form-modal input {
+  width: 97%;
+}
+
+.signup-modal-bttn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #384d48;
+  color: white;
+  border-radius: 12px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.signup-modal-bttn:hover {
+  transform: scale(1.1);
+}

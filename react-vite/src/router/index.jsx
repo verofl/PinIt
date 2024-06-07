@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import DisplayFeed from "../components/DisplayFeed/DisplayFeed";
 import CreatePin from "../components/CreatePin/CreatePin";
 import PinDetails from "../components/PinDetails/PinDetails";
+import Landing from "../components/Landing/Landing";
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h1>Welcome!</h1>,
+        element: <Landing />,
       },
       {
         path: "/feed",
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
         path: "/pins/new",
         element: <CreatePin />,
       },
+
       {
         path: "login",
         element: <LoginFormPage />,

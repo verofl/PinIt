@@ -1,0 +1,31 @@
+/* .delete-dot-cont {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+} */
+
+.delete-dropdown {
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 15px;
+  position: absolute;
+  padding: 10px;
+}
+
+.delete-dropdown li {
+  list-style-type: none;
+}
+
+.delete-dots {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-top: 7px;
+}
+
+.delete-comment-bttn {
+  border: 0;
+  background-color: transparent;
+}
+
+.spans:hover {
+  cursor: pointer;
+}

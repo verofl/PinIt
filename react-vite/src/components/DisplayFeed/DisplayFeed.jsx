@@ -37,11 +37,11 @@ export const DisplayFeed = () => {
               <h3>{pin.title}</h3>
               <div className="display-user-details">
                 <img
-                  src={pin.user[0].profile_picture}
-                  alt={pin.user[0].first_name}
+                  src={pin.user[0]?.profile_picture}
+                  alt={pin.user[0]?.first_name}
                   className="masonry-user-profile-pic"
                 />
-                <p>{pin.user[0].first_name}</p>
+                <p>{pin.user[0]?.first_name}</p>
               </div>
             </div>
           ))}

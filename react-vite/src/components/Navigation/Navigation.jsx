@@ -4,13 +4,16 @@ import "./Navigation.css";
 import { FaSearch } from "react-icons/fa";
 import { FaBell } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 function Navigation() {
+  const currentUser = useSelector((store) => store.session.user);
+
   const navigate = useNavigate();
   return (
     <div className="nav-bar">
       <img
-        src="./P.png"
+        src="../public/P.png"
         className="nav-logo"
         onClick={() => navigate(`/feed`)}
       ></img>
@@ -20,15 +23,17 @@ function Navigation() {
       <NavLink to="/" className="nav-navlink">
         Explore
       </NavLink>
-      <NavLink to="/pins/new" className="nav-navlink">
-        Create
-      </NavLink>
+      {currentUser && (
+        <NavLink to="/pins/new" className="nav-navlink">
+          Create
+        </NavLink>
+      )}
       <div className="search-bar">
         <FaSearch />
         <input type="search" placeholder="Search" className="search-input" />
       </div>
-      <FaBell />
-      <AiFillMessage />
+      <FaBell className="nav-icon" />
+      <AiFillMessage className="nav-icon" />
       <ProfileButton />
     </div>
   );

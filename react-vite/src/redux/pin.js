@@ -93,19 +93,24 @@ export const createPinThunk = (pin) => async (dispatch) => {
 
 // Update Pin
 export const updatePinThunk = (pin_id, pin) => async (dispatch) => {
-  const res = await fetch(`/api/pins/${pin_id}`, {
-    method: "PUT",
-    body: pin,
-  });
+  try {
+    const res = await fetch(`/api/pins/${pin_id}`, {
+      method: "PUT",
+      body: pin,
+    });
 
-  const data = await res.json();
+    const data = await res.json();
 
-  if (!res.ok) {
-    return { errors: data };
+    if (!res.ok) {
+      return { errors: data };
+    }
+
+    await dispatch(updatePin(data));
+    return data;
+  } catch (error) {
+    console.error("Failed to update the pin:", error);
+    return { errors: error.message };
   }
-
-  await dispatch(updatePin(data));
-  return data;
 };
 
 // Delete Pin

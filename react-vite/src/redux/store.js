@@ -8,13 +8,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import pinReducer from "./pin";
 import userReducer from "./user";
-// import commentReducer from "./comment";
+import commentReducer from "./comment";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   pinReducer: pinReducer,
   userReducer: userReducer,
-  // commentReducer: commentReducer,
+  commentReducer: commentReducer,
 });
 
 let enhancer;

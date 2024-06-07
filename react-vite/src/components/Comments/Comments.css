@@ -1,0 +1,17 @@
+.each-comment {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* border: 1px solid red; */
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.comment-list {
+  max-height: 125px;
+  overflow-y: auto;
+  max-width: 100%;
+}

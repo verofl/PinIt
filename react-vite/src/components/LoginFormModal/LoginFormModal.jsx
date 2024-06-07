@@ -31,7 +31,7 @@ function LoginFormModal() {
   return (
     <>
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form-modal">
         <label>
           Email
           <input
@@ -52,7 +52,17 @@ function LoginFormModal() {
           />
         </label>
         {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <button type="submit" className="login-modal-bttn modal-buttons">
+          Log In
+        </button>
+        <button
+          onClick={() => {
+            setEmail("demo@aa.io"), setPassword("password");
+          }}
+          className="modal-buttons"
+        >
+          Demo User
+        </button>
       </form>
     </>
   );

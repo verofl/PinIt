@@ -93,22 +93,26 @@ def update_pin(pin_id):
     if not indvPin:
         return {"message": "Pin couldn't be found"}, 404
 
-    form["csrf_token"].data = request.cookies["csrf_token"]
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        if form.data["image_url"]:
-            image = form.data["image_url"]
+        if 'image_url' in request.files:
+            image = request.files['image_url']
             image.filename = get_unique_filename(image.filename)
             upload = upload_file_to_s3(image)
             print(upload)
 
             if "url" not in upload:
-            # if the dictionary doesn't have a url key
-            # it means that there was an error when you tried to upload
-            # so you send back that error message (and you printed it above)
-                return render_template("pin_form.html", form=form, errors=[upload])
+              # if the dictionary doesn't have a url key
+              # it means that there was an error when you tried to upload
+              # so you send back that error message (and you printed it above)
+              return render_template("pin_form.html", form=form, errors=[upload])
 
-        indvPin.image_url = upload["url"]
+            url = upload['url']
+            indvPin.image_url = url
+        else:
+            url = None
+
         indvPin.title = form.data["title"]
         indvPin.description = form.data["description"]
         indvPin.category = form.data["category"]
@@ -118,7 +122,6 @@ def update_pin(pin_id):
         return indvPin.to_dict(), 200
 
     return form.errors, 400
-
 
 # Delete Pin
 @pin_routes.route("/<int:pin_id>", methods=["DELETE"])
