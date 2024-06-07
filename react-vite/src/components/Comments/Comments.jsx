@@ -13,7 +13,7 @@ export const CommentDetails = () => {
   const { pin_id } = useParams();
 
   const pins = useSelector((state) => state.pinReducer);
-  const users = useSelector((state) => state.userReducer);
+  // const users = useSelector((state) => state.userReducer);
   // let usersArray = Object.values(users);
 
   const currentUser = useSelector((store) => store.session.user);
