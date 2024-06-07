@@ -13,8 +13,9 @@ export const CommentDetails = () => {
   const { pin_id } = useParams();
 
   const pins = useSelector((state) => state.pinReducer);
-  // const users = useSelector((state) => state.userReducer);
-  // let usersArray = Object.values(users);
+  const users = useSelector((state) => state.userReducer);
+  let usersArray = Object.values(users);
+  console.log("USERS ARRAY ===>", usersArray);
 
   const currentUser = useSelector((store) => store.session.user);
 
@@ -24,6 +25,7 @@ export const CommentDetails = () => {
   const indvPin = pins[pinId];
 
   let commentsArray = Object.values(indvPin?.comments || {});
+  console.log("COMMENTS ARRAY ==>", commentsArray);
 
   if (commentsArray.length > 0) {
     commentsArray.sort(
@@ -54,14 +56,31 @@ export const CommentDetails = () => {
       <h3 className="comment-header">Comments</h3>
       {commentsArray.length > 0 ? (
         <div className="comment-list">
-          {commentsArray.map((comment) => (
-            <div key={comment.id} className="each-comment">
-              <div>{comment.comment}</div>
-              {currentUser && comment.user_id === currentUser.id && (
-                <DeleteComment comment_id={comment.id} />
-              )}
-            </div>
-          ))}
+          {commentsArray.map((comment) => {
+            const user = usersArray.find((user) => user.id === comment.user_id);
+            return (
+              <div key={comment.id} className="each-comment">
+                <div className="comment-user-info">
+                  {user && (
+                    // <div className="comment-user-info">
+                    <img
+                      src={user.profile_picture}
+                      alt="Profile Pic"
+                      className="comment-user-pfp"
+                    />
+                    // </div>
+                  )}
+                  <div className="user-and-comment">
+                    <p className="comment-user-fN">{user.first_name}</p>
+                    <p>{comment.comment}</p>
+                  </div>
+                  {currentUser && comment.user_id === currentUser.id && (
+                    <DeleteComment comment_id={comment.id} />
+                  )}
+                </div>
+              </div>
+            );
+          })}
         </div>
       ) : currentUser ? (
         <p>No comments yet! Add one to start the conversation!</p>

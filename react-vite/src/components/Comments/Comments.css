@@ -15,3 +15,29 @@
   overflow-y: auto;
   max-width: 100%;
 }
+
+.comment-user-pfp {
+  /* aspect-ratio: 1/1; */
+  margin-top: 10px;
+  border-radius: 50%;
+  width: 8%;
+  height: 10%;
+  object-fit: cover;
+}
+
+.user-and-comment {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: row;
+}
+
+.comment-user-fN {
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+.comment-user-info {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+}
