@@ -17,11 +17,20 @@ export const CreatePin = () => {
   const [imageLoading, setImageLoading] = useState(false);
   const [hasSubmitted, setSubmitted] = useState(false);
 
+  const allowedImages = ["pdf", "png", "jpg", "jpeg", "gif"];
+
   useEffect(() => {
     const errors = {};
 
     if (!image_url) {
       errors.image_url = "Image is required";
+    } else {
+      const extension = image_url.name.split(".").pop().toLowerCase();
+      if (!allowedImages.includes(extension)) {
+        errors.image_url = `Invalid file type. Allowed types are: ${allowedImages.join(
+          ", "
+        )}`;
+      }
     }
 
     if (title.length < 2 || title.length > 100) {
