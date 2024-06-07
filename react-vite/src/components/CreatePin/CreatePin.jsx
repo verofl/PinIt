@@ -16,8 +16,19 @@ export const CreatePin = () => {
   const [validationErrors, setValidationErrors] = useState({});
   const [imageLoading, setImageLoading] = useState(false);
   const [hasSubmitted, setSubmitted] = useState(false);
+  const [preview, setPreview] = useState();
 
   const allowedImages = ["pdf", "png", "jpg", "jpeg", "gif"];
+
+  useEffect(() => {
+    if (!image_url) {
+      setPreview(undefined);
+      return;
+    }
+    const objectUrl = URL.createObjectURL(image_url);
+    setPreview(objectUrl);
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [image_url]);
 
   useEffect(() => {
     const errors = {};
@@ -71,7 +82,7 @@ export const CreatePin = () => {
   };
 
   return (
-    <div>
+    <div className="create-pin-container">
       <h1>Create Your New Pin</h1>
       <form
         className="pin-form"
@@ -79,6 +90,7 @@ export const CreatePin = () => {
         encType="multipart/form-data"
       >
         <div className="image-cont">
+          <img className="image-preview" src={preview} />
           <p className="input-title">Image</p>
           <input
             type="file"
@@ -102,7 +114,7 @@ export const CreatePin = () => {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="form-input"
+            className="form-input description-textarea"
           />
           <div className="form-errors">{validationErrors.description}</div>
 

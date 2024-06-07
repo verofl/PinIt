@@ -1,18 +1,52 @@
+.create-pin-container {
+  margin-top: 6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .pin-form {
   display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto 1fr auto;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
   padding: 10px;
   width: 60%;
-  margin: 0 auto;
   gap: 20px;
-  justify-content: center;
-  margin-top: 6em;
+}
+
+.image-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-preview {
+  height: 300px;
+  /* width: auto; */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.input-title {
+  font-weight: bold;
+}
+
+.form-input {
+  width: 95%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .form-submit-bttn {
-  justify-self: center;
-  align-self: center;
   border: 0px;
   background-color: #384d48;
   color: white;
@@ -26,16 +60,12 @@
   cursor: not-allowed;
 }
 
-.pin-form input,
-.pin-form textarea {
-  width: 100%;
-}
-
 .form-errors {
   color: red;
   font-size: 12px;
 }
 
-.log-in-first {
-  padding-top: 6em;
+.description-textarea {
+  height: 150px;
+  resize: vertical;
 }
