@@ -6,8 +6,10 @@ import "./SignupForm.css";
 
 function SignupFormModal() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [first_name, setfirst_name] = useState("");
+  const [last_name, setlast_name] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
@@ -23,10 +25,16 @@ function SignupFormModal() {
       });
     }
 
+    let profile_picture =
+      "https://res.cloudinary.com/djqcfdrbm/image/upload/v1717723809/WuberEats/cat-pfp_ul67ue.jpg";
+
     const serverResponse = await dispatch(
       thunkSignup({
-        email,
         username,
+        email,
+        first_name,
+        last_name,
+        profile_picture,
         password,
       })
     );
@@ -44,16 +52,6 @@ function SignupFormModal() {
       {errors.server && <p>{errors.server}</p>}
       <form onSubmit={handleSubmit} className="signup-form-modal">
         <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
           Username
           <input
             type="text"
@@ -63,6 +61,39 @@ function SignupFormModal() {
           />
         </label>
         {errors.username && <p>{errors.username}</p>}
+        <label>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        {errors.email && <p>{errors.email}</p>}
+
+        <label>
+          First Name
+          <input
+            type="text"
+            value={first_name}
+            onChange={(e) => setfirst_name(e.target.value)}
+            required
+          />
+        </label>
+        {errors.first_name && <p>{errors.first_name}</p>}
+
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={last_name}
+            onChange={(e) => setlast_name(e.target.value)}
+            required
+          />
+        </label>
+        {errors.last_name && <p>{errors.last_name}</p>}
+
         <label>
           Password
           <input

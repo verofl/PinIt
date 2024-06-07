@@ -77,7 +77,6 @@ export const CreatePin = () => {
             onChange={(e) => setImage_Url(e.target.files[0])}
           />
           <div className="form-errors">{validationErrors.image_url}</div>
-          <div></div>
         </div>
 
         <div className="create-right-side">
