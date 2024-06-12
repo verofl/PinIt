@@ -1,6 +1,6 @@
 .pins-cont {
-  padding-left: 6em;
-  padding-right: 6em;
+  padding-left: 4em;
+  padding-right: 4em;
   padding-top: 6em;
 }
 
@@ -11,7 +11,7 @@
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 1em;
-  background-color: rgba(211, 211, 211, 0.128);
+  /* background-color: rgba(211, 211, 211, 0.128); */
   border-radius: 20px;
   padding: 8px;
   box-sizing: border-box;
@@ -49,21 +49,27 @@
 
 @media (min-width: 576px) {
   .masonry-layout {
-    column-count: 1;
+    column-count: 2;
   }
 }
 @media (min-width: 768px) {
   .masonry-layout {
-    column-count: 2;
+    column-count: 3;
   }
 }
 @media (min-width: 992px) {
   .masonry-layout {
-    column-count: 3;
+    column-count: 4;
   }
 }
 @media (min-width: 1200px) {
   .masonry-layout {
     column-count: 5;
   }
+}
+
+.pin-title {
+  font-weight: 550;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
