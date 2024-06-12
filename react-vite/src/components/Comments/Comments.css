@@ -1,6 +1,6 @@
 .each-comment {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   /* border: 1px solid red; */
   font-size: 20px;
   display: flex;
@@ -18,7 +18,7 @@
 
 .comment-user-pfp {
   /* aspect-ratio: 1/1; */
-  margin-top: 10px;
+  /* margin-bottom: 10px; */
   border-radius: 50%;
   width: 8%;
   height: 10%;
@@ -29,6 +29,11 @@
   display: flex;
   gap: 0.5em;
   flex-direction: row;
+}
+
+.user-and-comment p {
+  margin-top: 0.25em;
+  margin-bottom: 0;
 }
 
 .comment-user-fN {

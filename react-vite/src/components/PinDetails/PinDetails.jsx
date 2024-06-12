@@ -24,7 +24,7 @@ export const PinDetails = () => {
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
   // console.log("CURRENT USER ==>", currentUser);
-  // console.log("PIN DETAILS ==>", indvPin);
+  // console.log("PIN DETAILS ==>", indvPin.user[0].profile_picture);
 
   const ulRef = useRef();
 
@@ -111,16 +111,16 @@ export const PinDetails = () => {
             <h1 className="indv-title">{indvPin.title}</h1>
             <p className="indv-desc">{indvPin.description}</p>
           </div>
-          {currentUser && (
-            <div className="indv-user-info">
-              <img
-                src={indvPin.user[0]?.profile_picture}
-                alt={indvPin.user[0]?.first_name}
-                className="indv-profile-pic"
-              />
-              <p className="indv-user-fn">{indvPin.user[0]?.first_name}</p>
-            </div>
-          )}
+          {/* {currentUser && ( */}
+          <div className="indv-user-info">
+            <img
+              src={indvPin.user[0]?.profile_picture}
+              alt={indvPin.user[0]?.first_name}
+              className="indv-profile-pic"
+            />
+            <p className="indv-user-fn">{indvPin.user[0]?.first_name}</p>
+          </div>
+          {/* )} */}
           <CommentDetails />
         </div>
       </div>
