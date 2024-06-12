@@ -47,10 +47,26 @@ function ProfileButton() {
 
   return (
     <>
-      <div onClick={toggleMenu} className="nav-user-container">
-        {!user && <FaUserCircle className="fa-user-circle" />}
+      <div className="nav-user-container">
+        {/* {!user && <FaUserCircle className="fa-user-circle" />} */}
+        {!user && (
+          <div className="nav-bttns">
+            <OpenModalMenuItem
+              itemText={<button className="login-bttn nav-bttn">Log In</button>}
+              modalComponent={<LoginFormModal />}
+            />
+            <OpenModalMenuItem
+              itemText={
+                <button className="signup-bttn nav-bttn">Sign Up</button>
+              }
+              modalComponent={<SignupFormModal />}
+            />
+          </div>
+        )}
         {user && (
-          <img src={user.profile_picture} className="nav-user-pic"></img>
+          <div onClick={toggleMenu}>
+            <img src={user.profile_picture} className="nav-user-pic"></img>
+          </div>
         )}
       </div>
       {showMenu && (
