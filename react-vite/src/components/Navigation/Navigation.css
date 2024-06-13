@@ -34,12 +34,17 @@
   color: #384d48;
 }
 
+.search-icon {
+  color: #767676;
+  padding-right: 0.5em;
+}
+
 .search-bar {
   /* border: 1px solid black; */
-  border-radius: 12px;
-  padding: 7px;
+  border-radius: 25px;
+  padding: 12px;
   background-color: rgba(211, 211, 211, 0.529);
-  width: 45%;
+  width: 65%;
 }
 
 .nav-logo {
@@ -62,4 +67,15 @@
 .nav-icon {
   font-size: 2em;
   color: #767676;
+}
+
+.active {
+  background-color: #384d48;
+  border-radius: 20px;
+  padding: 10px;
+  color: white;
+}
+
+.active:hover {
+  color: white;
 }
