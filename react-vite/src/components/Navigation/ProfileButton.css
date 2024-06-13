@@ -7,9 +7,19 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.down-arrow-dropdown {
+  color: #767676;
+  margin-bottom: 7px;
+}
 
 .nav-user-pic:hover {
   cursor: pointer;
+  border: 1px solid black;
+}
+
+.down-arrow-dropdown:hover {
+  cursor: pointer;
+  transform: scale(1.15);
 }
 
 .nav-user-container {
