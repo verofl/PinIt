@@ -11,7 +11,7 @@
 }
 
 .comment-list {
-  max-height: 215px;
+  height: 145px;
   overflow-y: auto;
   max-width: 100%;
 }

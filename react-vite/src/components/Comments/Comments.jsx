@@ -52,7 +52,7 @@ export const CommentDetails = () => {
   }
 
   return (
-    <div>
+    <div className="comments-container-list">
       <h3 className="comment-header">Comments</h3>
       {commentsArray.length > 0 ? (
         <div className="comment-list">

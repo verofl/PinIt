@@ -20,6 +20,7 @@
 .down-arrow-dropdown:hover {
   cursor: pointer;
   transform: scale(1.15);
+  color: #384d48;
 }
 
 .nav-user-container {
