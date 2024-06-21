@@ -17,7 +17,15 @@ function Navigation() {
         className="nav-logo"
         onClick={() => navigate(`/feed`)}
       ></img>
-      <NavLink to="/feed" className="nav-navlink">
+      {/* <NavLink to="/feed" className="nav-navlink">
+        Home
+      </NavLink> */}
+      <NavLink
+        to="/feed"
+        className={({ isActive }) =>
+          isActive ? "active nav-navlink" : "nav-navlink"
+        }
+      >
         Home
       </NavLink>
       <NavLink to="/" className="nav-navlink">
@@ -29,7 +37,7 @@ function Navigation() {
         </NavLink>
       )}
       <div className="search-bar">
-        <FaSearch />
+        <FaSearch className="search-icon" />
         <input type="search" placeholder="Search" className="search-input" />
       </div>
       <FaBell className="nav-icon" />

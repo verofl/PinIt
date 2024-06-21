@@ -7,15 +7,27 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.down-arrow-dropdown {
+  color: #767676;
+  margin-bottom: 7px;
+}
 
 .nav-user-pic:hover {
   cursor: pointer;
+  border: 1px solid black;
+}
+
+.down-arrow-dropdown:hover {
+  cursor: pointer;
+  transform: scale(1.15);
+  color: #384d48;
 }
 
 .nav-user-container {
   height: 49px;
   margin-right: 40px;
   padding: 0;
+  align-content: center;
   /* border: 1px solid red; */
 }
 
@@ -50,4 +62,23 @@
 .logout-bttn:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.nav-bttns {
+  display: flex;
+  list-style-type: none;
+  gap: 0.55em;
+}
+
+.nav-bttn {
+  border-radius: 20px;
+  padding: 12px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.login-bttn {
+  background-color: #384d48;
+  color: white;
 }

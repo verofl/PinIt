@@ -63,3 +63,8 @@
 .description {
   resize: vertical;
 }
+
+.input-edit-title {
+  margin-bottom: 1px;
+  margin-top: 10px;
+}

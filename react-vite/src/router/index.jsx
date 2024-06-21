@@ -6,6 +6,7 @@ import DisplayFeed from "../components/DisplayFeed/DisplayFeed";
 import CreatePin from "../components/CreatePin/CreatePin";
 import PinDetails from "../components/PinDetails/PinDetails";
 import Landing from "../components/Landing/Landing";
+import { ProfilePage } from "../components/ProfilePage/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: "/pins/new",
         element: <CreatePin />,
+      },
+      {
+        path: "/profile",
+        element: <ProfilePage />,
       },
 
       {

@@ -1,5 +1,7 @@
 .profile-dropdown {
   position: absolute;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .nav-bar {
@@ -21,7 +23,7 @@
   text-decoration: none;
   color: black;
   font-weight: semi-bold;
-  font-size: 22px;
+  font-size: 18px;
 }
 .active-link {
   background-color: #384d48;
@@ -34,12 +36,17 @@
   color: #384d48;
 }
 
+.search-icon {
+  color: #767676;
+  padding-right: 0.5em;
+}
+
 .search-bar {
   /* border: 1px solid black; */
-  border-radius: 12px;
-  padding: 7px;
+  border-radius: 30px;
+  padding: 15px;
   background-color: rgba(211, 211, 211, 0.529);
-  width: 45%;
+  width: 60%;
 }
 
 .nav-logo {
@@ -61,4 +68,16 @@
 
 .nav-icon {
   font-size: 2em;
+  color: #767676;
+}
+
+.active {
+  background-color: #384d48;
+  border-radius: 30px;
+  padding: 12.5px;
+  color: white;
+}
+
+.active:hover {
+  color: white;
 }

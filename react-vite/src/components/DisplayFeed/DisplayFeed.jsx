@@ -34,7 +34,7 @@ export const DisplayFeed = () => {
                 alt={pin.title}
                 className="masonry-image"
               />
-              <h3>{pin.title}</h3>
+              <h3 className="pin-title">{pin.title}</h3>
               <div className="display-user-details">
                 <img
                   src={pin.user[0]?.profile_picture}

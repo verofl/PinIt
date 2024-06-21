@@ -6,6 +6,7 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { FaAngleDown } from "react-icons/fa6";
 import "./ProfileButton.css";
 
 function ProfileButton() {
@@ -47,10 +48,31 @@ function ProfileButton() {
 
   return (
     <>
-      <div onClick={toggleMenu} className="nav-user-container">
-        {!user && <FaUserCircle className="fa-user-circle" />}
+      <div className="nav-user-container">
+        {/* {!user && <FaUserCircle className="fa-user-circle" />} */}
+        {!user && (
+          <div className="nav-bttns">
+            <OpenModalMenuItem
+              itemText={<button className="login-bttn nav-bttn">Log In</button>}
+              modalComponent={<LoginFormModal />}
+            />
+            <OpenModalMenuItem
+              itemText={
+                <button className="signup-bttn nav-bttn">Sign Up</button>
+              }
+              modalComponent={<SignupFormModal />}
+            />
+          </div>
+        )}
         {user && (
-          <img src={user.profile_picture} className="nav-user-pic"></img>
+          <div>
+            <img
+              src={user.profile_picture}
+              className="nav-user-pic"
+              onClick={() => navigate(`/profile`)}
+            ></img>
+            <FaAngleDown onClick={toggleMenu} className="down-arrow-dropdown" />
+          </div>
         )}
       </div>
       {showMenu && (

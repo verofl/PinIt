@@ -11,6 +11,11 @@
   grid-template-columns: repeat(2, 50%);
 }
 
+.indv-left-side,
+.indv-right-side {
+  height: 600px;
+}
+
 .indv-img {
   height: 100%;
   width: 98%;
