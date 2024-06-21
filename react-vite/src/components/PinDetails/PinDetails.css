@@ -86,8 +86,12 @@
 }
 
 .icon-bttns {
+  margin-left: 410px;
   display: flex;
   flex-direction: row;
   gap: 5px;
   justify-content: end;
+
+  position: absolute;
+  z-index: 10;
 }
