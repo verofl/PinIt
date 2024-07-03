@@ -73,6 +73,13 @@ Delete Comments
 * Change your mind about a comment? 
 * You have the control to delete it whenever you want.
 
+  </br>
+
+### Search
+* Able to input a keyword in the search bar
+* View the pins that include that word in the title/description
+
+
 ---
 ## Clone this Repository
 
