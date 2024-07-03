@@ -1,25 +1,31 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import { FaSearch } from "react-icons/fa";
-import { FaBell } from "react-icons/fa";
-import { AiFillMessage } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
 function Navigation() {
   const currentUser = useSelector((store) => store.session.user);
-
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim() !== "") {
+      navigate(`/search?query=${searchQuery}`);
+      setSearchQuery("");
+    }
+  };
+
   return (
     <div className="nav-bar">
       <img
         src="https://mypinitbucket.s3.amazonaws.com/P.png"
         className="nav-logo"
         onClick={() => navigate(`/feed`)}
-      ></img>
-      {/* <NavLink to="/feed" className="nav-navlink">
-        Home
-      </NavLink> */}
+        alt="Logo"
+      />
       <NavLink
         to="/feed"
         className={({ isActive }) =>
@@ -28,20 +34,24 @@ function Navigation() {
       >
         Home
       </NavLink>
-      <NavLink to="/" className="nav-navlink">
-        Explore
-      </NavLink>
+      {/* <NavLink to="/about" className="nav-navlink">
+        About
+      </NavLink> */}
       {currentUser && (
         <NavLink to="/pins/new" className="nav-navlink">
           Create
         </NavLink>
       )}
-      <div className="search-bar">
+      <form className="search-bar" onSubmit={handleSearch}>
         <FaSearch className="search-icon" />
-        <input type="search" placeholder="Search" className="search-input" />
-      </div>
-      <FaBell className="nav-icon" />
-      <AiFillMessage className="nav-icon" />
+        <input
+          type="search"
+          placeholder="Search"
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </form>
       <ProfileButton />
     </div>
   );

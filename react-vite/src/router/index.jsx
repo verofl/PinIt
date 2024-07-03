@@ -7,6 +7,8 @@ import CreatePin from "../components/CreatePin/CreatePin";
 import PinDetails from "../components/PinDetails/PinDetails";
 import Landing from "../components/Landing/Landing";
 import { ProfilePage } from "../components/ProfilePage/ProfilePage";
+import SearchResults from "../components/Search/SearchResults";
+import About from "../components/About/About";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ export const router = createBrowserRouter([
         path: "/profile",
         element: <ProfilePage />,
       },
+      {
+        path: "/about",
+        element: <About />,
+      },
 
       {
         path: "login",
@@ -40,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignupFormPage />,
+      },
+      {
+        path: "/search",
+        element: <SearchResults />,
       },
     ],
   },

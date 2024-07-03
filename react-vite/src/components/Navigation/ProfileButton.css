@@ -9,7 +9,7 @@
 }
 .down-arrow-dropdown {
   color: #767676;
-  margin-bottom: 7px;
+  margin-top: 9px;
 }
 
 .nav-user-pic:hover {
@@ -81,4 +81,10 @@
 .login-bttn {
   background-color: #384d48;
   color: white;
+}
+
+.pfp-nav-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

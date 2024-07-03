@@ -1,14 +1,16 @@
-import "./DisplayFeed.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadPinsThunk } from "../../redux/pin";
 import { useNavigate } from "react-router-dom";
+import { loadUserPinsThunk } from "../../redux/pin";
+import "../DisplayFeed/DisplayFeed.css";
+import "./CreatedPins.css";
 
-export const DisplayFeed = () => {
-  const dispatch = useDispatch();
+export const CreatedPins = () => {
   const navigate = useNavigate();
-  const pins = useSelector((state) => state.pinReducer);
-  let pinsArray = Object.values(pins);
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.session.user);
+  const user_pins = useSelector((state) => state.pinReducer);
+  let pinsArray = Object.values(user_pins);
 
   // this is to randomize the pinsArray so that the images arent in the same place every single time
   pinsArray.sort(
@@ -16,12 +18,12 @@ export const DisplayFeed = () => {
   );
 
   useEffect(() => {
-    dispatch(loadPinsThunk());
+    dispatch(loadUserPinsThunk(user.id));
   }, [dispatch]);
 
   return (
     <div>
-      <div className="pins-cont">
+      <div className="created-pins-cont">
         <div className="masonry-layout">
           {pinsArray.map((pin) => (
             <div
@@ -36,18 +38,14 @@ export const DisplayFeed = () => {
               />
               <h3 className="pin-title">{pin.title}</h3>
               <div className="display-user-details">
-                {pin.user && pin.user.length > 0 ? (
-                  <>
-                    <img
-                      src={pin.user[0].profile_picture}
-                      alt={pin.user[0].first_name}
-                      className="masonry-user-profile-pic"
-                    />
-                    <p>{pin.user[0].first_name}</p>
-                  </>
-                ) : (
-                  <p>Loading user...</p>
-                )}
+                <>
+                  <img
+                    src={user.profile_picture}
+                    alt={user.first_name}
+                    className="masonry-user-profile-pic"
+                  />
+                  <p>{user.first_name}</p>
+                </>
               </div>
             </div>
           ))}
@@ -57,4 +55,4 @@ export const DisplayFeed = () => {
   );
 };
 
-export default DisplayFeed;
+export default CreatedPins;

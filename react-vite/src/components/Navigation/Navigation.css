@@ -47,6 +47,8 @@
   padding: 15px;
   background-color: rgba(211, 211, 211, 0.529);
   width: 60%;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-logo {
@@ -80,4 +82,15 @@
 
 .active:hover {
   color: white;
+}
+
+@media (max-width: 992px) {
+  .search-bar {
+    width: 300px;
+  }
+}
+@media (max-width: 768px) {
+  .search-bar {
+    width: 250px;
+  }
 }

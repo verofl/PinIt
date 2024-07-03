@@ -1,3 +1,17 @@
-.profile-page-header {
+.profile-page-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   padding-top: 6em;
+}
+
+.pfp-profile-page {
+  width: 200px;
+  height: 200px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid black;
 }

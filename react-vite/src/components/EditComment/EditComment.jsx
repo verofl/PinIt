@@ -14,16 +14,13 @@ export const EditComment = ({ comment_id }) => {
   const pinId = Number(pin_id);
   const indvPin = pins[pinId];
   const { closeModal } = useModal();
-  // console.log("COMMENT HERE TO EDIT ==>", pinId.comments[comment_id]);
 
   const user = useSelector((store) => store.session.user);
   let commentsArray = Object.values(indvPin?.comments || {});
-  // console.log("Edit COMMENTSARRAY HERE ===>", commentsArray);
-  // console.log("COMMENT ID ==>", comment_id);
+
   const commentToFind = commentsArray.find(
     (comment) => comment.id === comment_id
   );
-  // console.log("COMMENT TO FIND ==>", commentToFind);
 
   const [comment, setComment] = useState(commentToFind.comment || "");
 
