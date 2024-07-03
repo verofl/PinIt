@@ -65,7 +65,7 @@ function ProfileButton() {
           </div>
         )}
         {user && (
-          <div>
+          <div className="pfp-nav-cont">
             <img
               src={user.profile_picture}
               className="nav-user-pic"
