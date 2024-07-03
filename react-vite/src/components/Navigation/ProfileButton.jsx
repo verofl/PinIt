@@ -15,7 +15,6 @@ function ProfileButton() {
   const [showMenu, setShowMenu] = useState(false);
   const user = useSelector((store) => store.session.user);
 
-  // console.log("HERE IS USER ==>>", user);
   const ulRef = useRef();
 
   const toggleMenu = (e) => {

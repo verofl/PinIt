@@ -15,7 +15,6 @@ export const CommentDetails = () => {
   const pins = useSelector((state) => state.pinReducer);
   const users = useSelector((state) => state.userReducer);
   let usersArray = Object.values(users);
-  console.log("USERS ARRAY ===>", usersArray);
 
   const currentUser = useSelector((store) => store.session.user);
 
@@ -25,7 +24,6 @@ export const CommentDetails = () => {
   const indvPin = pins[pinId];
 
   let commentsArray = Object.values(indvPin?.comments || {});
-  console.log("COMMENTS ARRAY ==>", commentsArray);
 
   if (commentsArray.length > 0) {
     commentsArray.sort(

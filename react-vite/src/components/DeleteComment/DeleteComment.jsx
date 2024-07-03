@@ -36,7 +36,6 @@ export const DeleteComment = ({ comment_id }) => {
 
   const closeMenu = () => setShowMenu(false);
 
-  // console.log("COMMENT ID DELETE ===>", comment_id);
   const deleteCommentEvent = (e) => {
     e.preventDefault();
     dispatch(deleteCommentThunk(comment_id));

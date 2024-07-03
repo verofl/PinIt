@@ -12,8 +12,6 @@ export const CreatedPins = () => {
   const user_pins = useSelector((state) => state.pinReducer);
   let pinsArray = Object.values(user_pins);
 
-  console.log("PINS INFO ===>", pinsArray);
-
   // this is to randomize the pinsArray so that the images arent in the same place every single time
   pinsArray.sort(
     () => Math.floor(Math.random() * 1000) - Math.floor(Math.random() * 1000)

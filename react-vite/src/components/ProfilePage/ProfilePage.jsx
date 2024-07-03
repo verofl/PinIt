@@ -10,10 +10,6 @@ export const ProfilePage = () => {
   const user_pins = useSelector((state) => state.pinReducer);
   let pinsArray = Object.values(user_pins);
 
-  console.log("USER INFO ==>", user);
-  console.log("USER PINS INFO ==>", user_pins);
-  console.log("PINS ARRAY ===>", pinsArray);
-
   useEffect(() => {
     dispatch(loadUserPinsThunk(user.id));
   }, [dispatch]);
