@@ -34,9 +34,9 @@ function Navigation() {
       >
         Home
       </NavLink>
-      {/* <NavLink to="/about" className="nav-navlink">
+      <NavLink to="/about" className="nav-navlink">
         About
-      </NavLink> */}
+      </NavLink>
       {currentUser && (
         <NavLink to="/pins/new" className="nav-navlink">
           Create
