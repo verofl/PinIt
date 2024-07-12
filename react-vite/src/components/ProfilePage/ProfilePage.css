@@ -3,8 +3,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding-top: 6em;
+  /* min-height: 100vh; */
+  /* padding-top: 6em; */
+}
+
+.about-page {
+  /* max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  padding: 10px; */
+  padding-left: 6em;
+  padding-right: 6em;
+  margin-top: 3em;
 }
 
 .pfp-profile-page {
@@ -14,4 +27,17 @@
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid black;
+}
+
+.about-links {
+  margin-top: 2em;
+}
+
+.links {
+  text-decoration: none;
+  color: #384d48;
+}
+
+.about-header {
+  color: #384d48;
 }

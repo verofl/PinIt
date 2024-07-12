@@ -1,5 +1,12 @@
 .about-page {
-  margin-top: 6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* margin-top: 1em; */
+  margin-left: 4em;
+  margin-right: 4em;
 }
 
 .my-image {
@@ -9,4 +16,12 @@
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid black;
+}
+
+.about-me-p {
+  text-align: center;
+}
+
+.links {
+  margin-left: 1em;
 }
