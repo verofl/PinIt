@@ -1,23 +1,17 @@
-.profile-page-div {
+.about-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* min-height: 100vh; */
-  /* padding-top: 6em; */
-}
-
-.about-page {
-  /* max-width: 1000px;
+  min-height: 100vh;
+  max-width: 1115px;
   width: 100%;
   margin: 0 auto;
   background-color: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  padding: 10px; */
-  padding-left: 6em;
-  padding-right: 6em;
-  margin-top: 3em;
+  padding: 10px 6em;
+  margin-top: 6em;
 }
 
 .pfp-profile-page {
@@ -34,7 +28,7 @@
 }
 
 .links {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: #384d48;
 }
 

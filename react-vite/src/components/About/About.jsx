@@ -35,6 +35,13 @@ export const About = () => {
         more. This is my fullstack project that replicates the numerous features
         that Pinterest has. I hope you enjoy it!
       </p>
+      {/* <h2 className="about-header">Check out my other project!</h2>
+      <img
+        src="https://mypinitbucket.s3.amazonaws.com/mythicalBnB.gif"
+        className=""
+        onClick={() => navigate(`/feed`)}
+        alt="Logo"
+      /> */}
     </div>
   );
 };
